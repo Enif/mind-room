@@ -1,0 +1,13 @@
+.navigator {
+    position: absolute;
+    bottom: 1rem;
+    font-size: 1.5rem;
+    display: flex;
+    color: #FFFFFF;
+    width: 100%;
+    justify-content: space-between;
+    p {
+        margin: 0.5rem 1rem;
+    }
+    // align-items: stretch;
+}

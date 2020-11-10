@@ -1,13 +1,19 @@
-.App {
-  text-align: center;
+#root {
+  height: 100%;
+  width: 100%;
 }
 
-.App-logo {
+.App {
+  height: 100%;
+  width: 100%;
+}
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
@@ -35,4 +41,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

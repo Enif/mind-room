@@ -1,0 +1,59 @@
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.question {
+  font-family: "NanumBaReunHiPi";
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  .background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .questions-wrp {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 4rem 1rem;
+    color: #ffffff;
+    line-height: 1.5;
+    text-align: center;
+    p {
+        animation-name: show;
+        animation-duration: 1s;
+        animation-iteration-count: 1;
+    }
+  }
+}
+
+.answers-wrp {
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation-name: show;
+  animation-duration: 0.7s;
+
+  // z-index: 1;
+  button {
+    font-family: "NanumBaReunHiPi";
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.5rem;
+    border: none;
+    border-radius: 1rem;
+    width: 80%;
+    margin: 0.5rem;
+    outline: none;
+  }
+}
