@@ -60,29 +60,33 @@ function Question() {
     }, [qIdx])
 
 
-    const setBackgroudImg = (idx: number) => {
-        switch (idx) {
-            case 1:
-                return <img className="background-img" src={q1Img} />
-            case 2:
-                return <img className="background-img" src={q2Img} />
-            case 3:
-                return <img className="background-img" src={q3Img} />
-            case 4:
-                return <img className="background-img" src={q4Img} />
-            case 5:
-                return <img className="background-img" src={q5Img} />
-            case 6:
-                return <img className="background-img" src={q6Img} />
-            case 7:
-                return <img className="background-img" src={q7Img} />
-            case 8:
-                return <img className="background-img" src={q8Img} />
-            case 9:
-                return <img className="background-img" src={q9Img} />
-            default:
-                break;
+    const makeImgClassName = (pageIdx: number, imgIdx: number, ) => {
+        if (pageIdx === imgIdx + 1 || pageIdx === imgIdx - 1) {
+            return "background-img hide"
         }
+        else if (pageIdx === imgIdx) {
+            return "background-img"
+        }
+        else {
+            return "background-img hidden"
+        }
+    }
+
+
+    const setBackgroudImg = (idx: number) => {
+        return (
+            <>
+                <img className={makeImgClassName(idx, 1)} src={q1Img} />
+                <img className={makeImgClassName(idx, 2)} src={q2Img} />
+                <img className={makeImgClassName(idx, 3)} src={q3Img} />
+                <img className={makeImgClassName(idx, 4)} src={q4Img} />
+                <img className={makeImgClassName(idx, 5)} src={q5Img} />
+                <img className={makeImgClassName(idx, 6)} src={q6Img} />
+                <img className={makeImgClassName(idx, 7)} src={q7Img} />
+                <img className={makeImgClassName(idx, 8)} src={q8Img} />
+                <img className={makeImgClassName(idx, 9)} src={q9Img} />
+            </>
+        )
     }
 
     const makeQuestionList = (questions: string[], idx: number, color: string, textAlign?: string) => {
