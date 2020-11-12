@@ -1,0 +1,56 @@
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.intro-wrp {
+  background-color: #95948a;
+}
+.intro-msg {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 5rem 1rem;
+  //   opacity: 0;
+  //   animation-name: show;
+  //   animation-duration: 2s;
+  //   animation-delay: 3s;
+  transition: all 2s;
+
+  &.hidden {
+    opacity: 0;
+    // display: none;
+  }
+
+  h5,
+  p {
+    text-align: center;
+  }
+  h5 {
+    margin: 2rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  p {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+}
+
+.intro-btn-start {
+  margin: 1.5rem auto;
+  height: 3rem;
+  width: 10rem;
+  background-color: #18495b;
+  color: #f5a895;
+  border: none;
+  border-radius: 1.5rem;
+  font-size: 1.5rem;
+}
