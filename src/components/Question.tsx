@@ -155,7 +155,7 @@ function Question() {
     return (
         <>
             {
-                pageIdx < qData.length ?
+                pageIdx <= qData.length ?
                     <div className="question">
                         {setBackgroudImg(pageIdx)}
                         {makeQuestionList(data.question, qIdx, data.questionColor, data["text-aline"])}

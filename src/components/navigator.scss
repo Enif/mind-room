@@ -1,9 +1,10 @@
 .navigator {
     position: absolute;
     bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
     display: flex;
-    color: #FFFFFF;
+    color: rgba(255, 255, 255, 0.55);
     width: 100%;
     justify-content: space-between;
     p {
