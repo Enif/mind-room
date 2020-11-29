@@ -3,7 +3,7 @@ import { RootState } from '../reducers';
 import { set } from '../reducers/answerReducer';
 
 function useAnswer() {
-    const answers = useSelector((state: RootState) => state.answerReducer)
+    const answers = useSelector((state: RootState) => state.answerReducer.answers)
     const dispatch = useDispatch();
 
     const setAnswer = (idx: number, answer: number) => dispatch(set(idx, answer));

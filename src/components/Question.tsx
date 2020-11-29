@@ -14,7 +14,7 @@ import q8Img from '../assets/img/q8.jpg'
 import q9Img from '../assets/img/q9.jpg'
 
 import Navigator from './Navigator';
-import Result from './Result';
+import Result from './result/Result';
 import styled from 'styled-components';
 
 import './question.scss'

@@ -5,6 +5,9 @@ import { createStore } from 'redux';
 import rootReducer from './reducers';
 import { Provider } from 'react-redux';
 
+import 'remixicon/fonts/remixicon.css'
+
+
 function App() {
 
   const store = createStore(rootReducer);

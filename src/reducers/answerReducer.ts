@@ -16,27 +16,31 @@ export const set = (idx: number, answer: number) => ({
 type AnswerAction = ReturnType<typeof set>
 
 type AnswerState = {
-    1: number,
-    2: number,
-    3: number,
-    4: number,
-    5: number,
-    6: number,
-    7: number,
-    8: number,
-    9: number
+    answers: {
+        "1": number,
+        "2": number,
+        "3": number,
+        "4": number,
+        "5": number,
+        "6": number,
+        "7": number,
+        "8": number,
+        "9": number
+    }
 }
 
 const initialState: AnswerState = {
-    1: 0,
-    2: 0,
-    3: 0,
-    4: 0,
-    5: 0,
-    6: 0,
-    7: 0,
-    8: 0,
-    9: 0
+    answers: {
+        "1": -1,
+        "2": -1,
+        "3": -1,
+        "4": -1,
+        "5": -1,
+        "6": -1,
+        "7": -1,
+        "8": -1,
+        "9": -1
+    }
 }
 
 function answerReducer(state: AnswerState = initialState, action: AnswerAction) {
@@ -44,7 +48,10 @@ function answerReducer(state: AnswerState = initialState, action: AnswerAction) 
         case SET:
             return {
                 ...state,
-                [action.idx]: action.answer
+                answers: {
+                    ...state.answers,
+                    [action.idx]: action.answer
+                }
             }
         default:
             return state;
