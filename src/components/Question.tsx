@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import usePage from '../hooks/usePage';
+import useAnswer from '../hooks/useAnswer';
+
 import qData from '../questions.json';
 import q1Img from '../assets/img/q1.jpg'
 import q2Img from '../assets/img/q2.jpg'
@@ -12,6 +14,7 @@ import q8Img from '../assets/img/q8.jpg'
 import q9Img from '../assets/img/q9.jpg'
 
 import Navigator from './Navigator';
+import Result from './Result';
 import styled from 'styled-components';
 
 import './question.scss'
@@ -34,6 +37,7 @@ const StyledParagraph = styled.p<{ textAlign?: string }>`
 function Question() {
 
     const { pageIdx, goNextPage } = usePage();
+    const { setAnswer } = useAnswer();
     const [qIdx, setQIdx] = useState(0);
     const [isAnswerOpened, setIsAnswerOpened] = useState(false);
 
@@ -59,7 +63,7 @@ function Question() {
     }, [pageIdx])
 
     useEffect(() => {
-        if (qIdx > data.question.length - 1 && !isAnswerOpened) {
+        if (data && (qIdx > data.question.length - 1) && !isAnswerOpened) {
             setIsAnswerOpened(true)
         }
     }, [qIdx])
@@ -123,8 +127,10 @@ function Question() {
         return (
             <div className="answers-wrp">
                 {
-                    answers.map((answer) => {
-                        return <button className="btn-answer" onClick={onClickAnswer}>{answer.text}</button>
+                    answers.map((answer, idx) => {
+                        return <button className="btn-answer"
+                            key={idx}
+                            onClick={() => onClickAnswer(idx)}>{answer.text}</button>
                     })
                 }
             </div>
@@ -152,7 +158,8 @@ function Question() {
     //     }
     // }
 
-    const onClickAnswer = () => {
+    const onClickAnswer = (answer: number) => {
+        setAnswer(pageIdx, answer);
         setQIdx(0);
         goNextPage();
     }
@@ -174,9 +181,7 @@ function Question() {
                         <Navigator />
                     </StyledQuestion>
                     :
-                    <div>
-                        끗
-                    </div>
+                    <Result />
             }
         </>
 

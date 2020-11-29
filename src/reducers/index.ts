@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import pageReducer from './pageReducer';
+import answerReducer from './answerReducer';
 
 const rootReducer = combineReducers({
-    pageReducer
+    pageReducer,
+    answerReducer
 });
 
 export default rootReducer;
