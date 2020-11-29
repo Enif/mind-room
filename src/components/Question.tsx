@@ -20,7 +20,12 @@ type answerType = {
     text: string
 }
 
-const StyledQuestion = styled.p<{ textAlign?: string }>`
+const StyledQuestion = styled.div<{ backgroundColor?: string }>`
+    background-color: ${props => props.backgroundColor || "#FFFFFF"};
+`
+
+
+const StyledParagraph = styled.p<{ textAlign?: string }>`
     color: ${props => props.color || "#FFFFFF"};
     text-align: ${props => props.textAlign || "center"};
 `
@@ -95,9 +100,9 @@ function Question() {
         }
         return (
             <div className="questions-wrp">
-                <StyledQuestion color={color} textAlign={textAlign} key={idx}>
+                <StyledParagraph color={color} textAlign={textAlign} key={idx}>
                     {questions[idx] && lineBreaker(questions[idx])}
-                </StyledQuestion>
+                </StyledParagraph>
             </div>
         )
     }
@@ -156,15 +161,18 @@ function Question() {
         <>
             {
                 pageIdx <= qData.length ?
-                    <div className="question">
-                        {setBackgroudImg(pageIdx)}
-                        {makeQuestionList(data.question, qIdx, data.questionColor, data["text-aline"])}
-                        {
-                            isAnswerOpened &&
-                            makeAnswerList(data.answer)
-                        }
+                    <StyledQuestion className="question" backgroundColor={data.backgroudColor}>
+
+                        <div className="question-inner">
+                            {setBackgroudImg(pageIdx)}
+                            {makeQuestionList(data.question, qIdx, data.questionColor, data["text-aline"])}
+                            {
+                                isAnswerOpened &&
+                                makeAnswerList(data.answer)
+                            }
+                        </div>
                         <Navigator />
-                    </div>
+                    </StyledQuestion>
                     :
                     <div>
                         끗

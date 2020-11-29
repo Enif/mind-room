@@ -17,9 +17,9 @@
 }
 
 .question {
-  // display: flex;
+  display: flex;
   // flex-direction: column;
-  // justify-content: center;
+  justify-content: center;
   font-family: "NanumBaReunHiPi";
   position: relative;
   height: 100%;
@@ -28,12 +28,18 @@
   animation-duration: 3s;
   letter-spacing: 0.05rem;
 
+  .question-inner {
+    width: 500px;
+    height: 850px;
+  }
+
   .background-img {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
+    // z-index: -1;
     transition: all 1s linear;
+    max-height: 100%;
     &.hide {
       opacity: 0;
     }
@@ -45,6 +51,8 @@
 
   .questions-wrp {
     // width: 100%;
+    position: relative;
+    
     width: 85%;
     font-size: 1.3rem;
     margin: 0 auto;
@@ -63,6 +71,8 @@
 }
 
 .answers-wrp {
+  position: relative;
+
   width: 100%;
   padding: 1rem 0;
   display: flex;

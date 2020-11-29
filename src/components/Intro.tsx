@@ -20,7 +20,7 @@ function Intro() {
 
   return (
     <div className="intro-wrp" onClick={() => setIsLottiePlay(true)}>
-      <Lottie autoplay={isLottiePlay} animationData={data} loop={false} onComplete={onAnimationEnd} />
+      <Lottie className="lottie-wrp" autoplay={isLottiePlay} animationData={data} loop={false} onComplete={onAnimationEnd} />
       <div className={`intro-msg${isMsgOn ? "" : " hidden"}`}>
         <h5>특별한 방으로 초대합니다</h5>
         <p>안녕하세요 저는 작가 Syeon입니다.<br />
