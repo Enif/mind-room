@@ -12,8 +12,9 @@
 /build
 
 # images
-/src/assets/img/
-/public/images/
+/src/assets/img
+/src/assets/sounds
+/public/images
 
 # misc
 .DS_Store

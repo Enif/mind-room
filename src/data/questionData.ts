@@ -1,12 +1,19 @@
+import q2Sound from '../assets/sounds/q2.mp3';
+import q3Sound from '../assets/sounds/q3.mp3';
+import q4Sound from '../assets/sounds/q4.mp3';
+import q5Sound from '../assets/sounds/q5.mp3';
+import q6Sound from '../assets/sounds/q6.mp3';
+import q7Sound from '../assets/sounds/q7.mp3';
+import q8Sound from '../assets/sounds/q8.mp3';
 
 const questionData = [
     {
-        "idx": 1,
-        "question": [
+        idx: 1,
+        question: [
             "\n오늘은 기다리던 여행을 가는 날입니다!\n​어디로 떠날 예정인가요?"
         ],
         "text-aline": "center",
-        "answer": [
+        answer: [
             {
                 "text": "사람이 적은 평화로운 자연",
                 "score": ""
@@ -29,18 +36,18 @@ const questionData = [
             }
         ],
         "backgroudImg": "../assets/img/q1.jpg",
-        "backgroudColor": "#A1896B",
-        "questionColor": "#1385AD",
-        "answerColor": "#6A6A6A"
+        backgroudColor: "#A1896B",
+        questionColor: "#1385AD",
+        answerColor: "#6A6A6A"
     },
     {
-        "idx": 2,
-        "question": [
+        idx: 2,
+        question: [
             "\n여행지에 도착해서 잠시 산책을 하는 중,\n갑자기 비가 쏟아집니다.",
             "\n\n이때 가장 먼저 드는 생각은 무엇인가요?"
         ],
         "text-aline": "center",
-        "answer": [
+        answer: [
             {
                 "text": "아, 짜증나(험한 말). 갑자기 이게 뭐야!!!",
                 "score": ""
@@ -62,19 +69,20 @@ const questionData = [
                 "score": ""
             }
         ],
-        "backgroudColor": "#023A7A",
-        "questionColor": "#FFFFFF",
-        "answerColor": "#57B6E9"
+        backgroudColor: "#023A7A",
+        questionColor: "#FFFFFF",
+        answerColor: "#57B6E9",
+        sound: q2Sound
     },
     {
-        "idx": 3,
-        "question": [
+        idx: 3,
+        question: [
             "\n\n다행히 비가 금방 그쳤네요!",
             "\n숙소로 돌아가는 길,\n저녁 노을을 보며 당신은 생각에 잠깁니다.",
             "\n\n요즘 당신의 가장 큰 고민은 무엇인가요?"
         ],
         "text-aline": "center",
-        "answer": [
+        answer: [
             {
                 "text": "나쁜 일이 생길 것 같아 걱정되고 두렵다.",
                 "score": ""
@@ -96,17 +104,18 @@ const questionData = [
                 "score": ""
             }
         ],
-        "backgroudColor": "#1C243A",
-        "questionColor": "#4F6495",
-        "answerColor": "#57B6E9"
+        backgroudColor: "#1C243A",
+        questionColor: "#4F6495",
+        answerColor: "#57B6E9",
+        sound: q3Sound
     },
     {
-        "idx": 4,
-        "question": [
+        idx: 4,
+        question: [
             "\n\n지금 당신에게 가장 필요한 것은 무엇인가요?"
         ],
         "text-aline": "center",
-        "answer": [
+        answer: [
             {
                 "text": "나를 위로해주고 힘이 되어주는 사람",
                 "score": ""
@@ -128,18 +137,19 @@ const questionData = [
                 "score": ""
             }
         ],
-        "backgroudColor": "#15182B",
-        "questionColor": "#FFFFFF",
-        "answerColor": "#57B6E9"
+        backgroudColor: "#15182B",
+        questionColor: "#FFFFFF",
+        answerColor: "#57B6E9",
+        sound: q4Sound
     },
     {
-        "idx": 5,
-        "question": [
+        idx: 5,
+        question: [
             "피곤했는지 숙소에\n도착하자마자 잠든\n당신.",
             "\n어떤 꿈을\n꾸고 있나요?"
         ],
         "text-aline": "left",
-        "answer": [
+        answer: [
             {
                 "text": "좁은 방 안에 사슬로 묶여있는 꿈",
                 "score": ""
@@ -161,19 +171,20 @@ const questionData = [
                 "score": ""
             }
         ],
-        "backgroudColor": "#0E0843",
-        "questionColor": "#868AD3",
-        "answerColor": "#8186C9"
+        backgroudColor: "#0E0843",
+        questionColor: "#868AD3",
+        answerColor: "#8186C9",
+        sound: q5Sound
     },
     {
-        "idx": 6,
-        "question": [
+        idx: 6,
+        question: [
             "다음 날\n아침식사 중,\n혼자 여행 온 사람을 만납니다.",
             "그/그녀가\n당신에게 오늘\n함께 다니자고 제안하네요.",
             "\n이때 당신은\n어떻게 할까요?"
         ],
         "text-aline": "left",
-        "answer": [
+        answer: [
             {
                 "text": "거절하기 곤란하니 알겠다고 한다.",
                 "score": ""
@@ -195,19 +206,20 @@ const questionData = [
                 "score": ""
             }
         ],
-        "backgroudColor": "#8E8550",
-        "questionColor": "#483D00",
-        "answerColor": "#57B6E9"
+        backgroudColor: "#8E8550",
+        questionColor: "#483D00",
+        answerColor: "#57B6E9",
+        sound: q6Sound
     },
     {
-        "idx": 7,
-        "question": [
+        idx: 7,
+        question: [
             "\n어느덧 여행 마지막 날\n집으로 돌아가는 기차 안.",
             "\n당신은 이번 여행에서\n찍은 사진들을 보고 있습니다.",
             "\n가장 눈길이 가는 사진에서\n당신은 어떤 모습인가요?"
         ],
         "text-aline": "right",
-        "answer": [
+        answer: [
             {
                 "text": "카메라를 향해 활짝 웃고 있다.",
                 "score": ""
@@ -229,19 +241,20 @@ const questionData = [
                 "score": ""
             }
         ],
-        "backgroudColor": "#B79873",
-        "questionColor": "#1F4700",
-        "answerColor": "#84A715"
+        backgroudColor: "#B79873",
+        questionColor: "#1F4700",
+        answerColor: "#84A715",
+        sound: q7Sound
     },
     {
-        "idx": 8,
-        "question": [
+        idx: 8,
+        question: [
             "\n사진을 모두 보고나니\n어느새 날이 어두워졌습니다.",
             "\n이제 정말로\n여행이 끝나가네요.",
             "\n이번 여행에서 가장\n만족스러운 점은 무엇이었나요?"
         ],
         "text-aline": "right",
-        "answer": [
+        answer: [
             {
                 "text": "처음으로 혼자만의 여행에 도전한 것",
                 "score": ""
@@ -263,17 +276,18 @@ const questionData = [
                 "score": ""
             }
         ],
-        "backgroudColor": "#946667",
-        "questionColor": "#812E2E",
-        "answerColor": "#57B6E9"
+        backgroudColor: "#946667",
+        questionColor: "#812E2E",
+        answerColor: "#57B6E9",
+        sound: q8Sound
     },
     {
-        "idx": 9,
-        "question": [
+        idx: 9,
+        question: [
             "\n여행이 끝나고 집에 돌아온 당신.\n가장 먼저 무엇을 하나요?"
         ],
         "text-aline": "center",
-        "answer": [
+        answer: [
             {
                 "text": "캐리어의 모든 물건을 정리하고 샤워한다.",
                 "score": ""
@@ -295,9 +309,9 @@ const questionData = [
                 "score": ""
             }
         ],
-        "backgroudColor": "#A1896B",
-        "questionColor": "#1385AD",
-        "answerColor": "#1385AD"
+        backgroudColor: "#A1896B",
+        questionColor: "#1385AD",
+        answerColor: "#1385AD"
     }
 ]
 

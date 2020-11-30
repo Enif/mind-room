@@ -1,5 +1,6 @@
 import React from 'react';
-import resultOutlineImg from '../../assets/img/result_outline_white.png';
+import resultOutlineImgWhite from '../../assets/img/result_outline_white.png';
+import resultOutlineImgBlack from '../../assets/img/result_outline_black.png';
 import resultData from '../../data/resultData';
 import styled from 'styled-components';
 
@@ -10,9 +11,11 @@ type ResultColorProps = {
 
 const StyledDiv = styled.div<{
     backgroundColor?: string,
+    color?: string
 }>`
-    background-color: ${props => props.backgroundColor || "#FFFFFF"};
+    background-color: ${props => props.backgroundColor};
     text-align: center;
+    color: ${props => props.color}
 `
 
 const StyledParagraph = styled.p<{
@@ -27,9 +30,11 @@ const StyledParagraph = styled.p<{
 `
 
 const StyledButton = styled.button<{
-    backgroundColor?: string
+    backgroundColor?: string,
+    color?: string
 }>`
     background-color: ${props => props.backgroundColor || '#FFFFFF'};
+    color: ${props => props.color || '#FFFFFF'};
 `
 
 const StyledIcon = styled.i<{
@@ -61,7 +66,12 @@ function ResultColor({ color, username }: ResultColorProps) {
                 result ?
                     <StyledDiv className="result-wrp" backgroundColor={result.backgroundColor}>
                         <div className="result-top">
-                            <img className="result-outline" src={resultOutlineImg} />
+                            {
+                                result.color === "white" ?
+                                    <img className="result-outline" src={resultOutlineImgBlack} />
+                                    :
+                                    <img className="result-outline" src={resultOutlineImgWhite} />
+                            }
                             <div className="result-inner">
                                 <StyledParagraph color={result.textFontColor} margin="1rem" fontSize="1.2rem" lineHeight="1.3" className="result-username">For.<br />{username}</StyledParagraph>
                                 <img className="result-img" src={result.img} />
@@ -74,12 +84,12 @@ function ResultColor({ color, username }: ResultColorProps) {
                             {/* <i className="ri-book-mark-line"></i> */}
                             <StyledIcon className="ri-book-mark-line" color={result.buttonColor} fontSize="2.5rem"></StyledIcon>
                             <a href={result.img} target="_blank" download>
-                                <StyledButton className="result-btn-save" backgroundColor={result.buttonColor}>이미지 저장</StyledButton>
+                                <StyledButton className="result-btn-save" color={result.buttonFontColor} backgroundColor={result.buttonColor}>이미지 저장</StyledButton>
                             </a>
                             <StyledIcon className="ri-share-fill" color={result.buttonColor} fontSize="2.5rem"></StyledIcon>
 
                         </div>
-                        <div className="result-divider"></div>
+                        <StyledDiv className="result-divider" color={result.dividerColor}></StyledDiv>
                         <div className="result-middle contact">
                             <StyledParagraph color={result.contactFontColor} fontSize="1.5rem">Syeon's artworks &gt;&gt;</StyledParagraph>
                             <div className="result-icons-right">
@@ -93,7 +103,7 @@ function ResultColor({ color, username }: ResultColorProps) {
                                 <StyledIcon color={result.contactFontColor} fontSize="2rem" className="ri-github-fill"></StyledIcon>
                             </div>
                         </div>
-                        <div className="result-divider"></div>
+                        <StyledDiv className="result-divider" color={result.dividerColor}></StyledDiv>
                         <div className="result-middle contact">
                             <StyledDiv className="result-contact-email" backgroundColor={result.emailBackgroundColor}>
                                 <StyledIcon className="ri-mail-line" fontSize="1.7rem"></StyledIcon>

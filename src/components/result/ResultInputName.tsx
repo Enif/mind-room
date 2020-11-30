@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react';
-import resultOutlineImg from '../../assets/img/result_outline-black.png';
+import resultOutlineImg from '../../assets/img/result_outline_black.png';
 
 type ResultInputNameProps = {
     goNext: () => void;

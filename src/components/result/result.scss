@@ -44,9 +44,10 @@
   // z-index: -1;
   height: 100%;
   width: 100%;
-  opacity: 0.5;
+  opacity: 0.2;
   &.main {
     height: 780px;
+    opacity: 0.5;
   }
 }
 
@@ -162,7 +163,8 @@
   margin-top: -0.5rem;
   display: flex;
   justify-content: center;
-  color: rgba(106, 106, 106, 0.4);
+  color: #6a6a6a;
+  opacity: 40%;
   letter-spacing: 0.7rem;
   font-size: 1.5rem;
   overflow: hidden;

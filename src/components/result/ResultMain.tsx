@@ -1,6 +1,6 @@
 import React from 'react';
 import resultMainImg from '../../assets/img/result_main.gif';
-import resultOutlineImg from '../../assets/img/result_outline-black.png';
+import resultOutlineImg from '../../assets/img/result_outline_black.png';
 
 type ResultMainProps = {
     goNext: () => void;

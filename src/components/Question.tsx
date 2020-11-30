@@ -177,6 +177,10 @@ function Question() {
                                 isAnswerOpened &&
                                 makeAnswerList(data.answer)
                             }
+                            {
+                                data.sound &&
+                                <audio src={data.sound} autoPlay loop />
+                            }
                         </div>
                         <Navigator />
                     </StyledQuestion>

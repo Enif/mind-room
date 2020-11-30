@@ -23,7 +23,7 @@ function Result() {
             green: 0,
             sky: 0,
             navy: 0,
-            puple: 0,
+            pink: 0,
             brown: 0,
             white: 0
         }
@@ -36,8 +36,7 @@ function Result() {
                 }
             }
         }
-        console.log(answers)
-
+        
         for (const qIdx in answers) {
             if (answers.hasOwnProperty(qIdx) && answersScoreData[Number.parseInt(qIdx)] && answers[qIdx as answersKeys] >= 0) {
                 const selectedAnswer = answers[qIdx as answersKeys];
@@ -46,6 +45,8 @@ function Result() {
             }
         }
 
+        console.log('answers >> ', answers)
+        console.log('resultScore >> ', resultScore);
         return resultScore;
     }
 
@@ -65,7 +66,8 @@ function Result() {
     }
 
     const resultScore = calculator();
-    const resultColor = findMax(resultScore);
+    // const resultColor = findMax(resultScore);
+    const resultColor = 'white'
 
     const goNext = function () {
         setResultIndex(resultIndex + 1);
