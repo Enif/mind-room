@@ -22,21 +22,20 @@ function Intro() {
     <div className="intro-wrp" onClick={() => setIsLottiePlay(true)}>
       <Lottie className="lottie-wrp" autoplay={isLottiePlay} animationData={data} loop={false} onComplete={onAnimationEnd} />
       <div className={`intro-msg${isMsgOn ? "" : " hidden"}`}>
-        <h5>특별한 방으로 초대합니다</h5>
-        <p>안녕하세요 저는 작가 Syeon입니다.<br />
+        <h5>마음의 방으로 초대합니다</h5>
+        <p>안녕하세요, 아티스트 Syeon입니다.<br />
           저는 예술을 통해 사람들의 정서적 아픔에 공감하고,<br />
-          이를 치유하기 위해 제가 어떠한 역할을 할 수<br />
-          있을 지 계속해서 고민해왔습니다.<br />
+          이를 치유할 수 있는 방법을 연구하고 있습니다.<br />
           <br />
-          그러한 고민으로부터 출발한 이 테스트는,<br />
-          불안 유형과 컬러테라피 등을 기반으로<br />
-          참여하신 분들의 각자를 위한<br />
-          특별한 방을 소개하는 프로젝트입니다.<br />
+          이 테스트는 당신의 현재 심리를 알아보고,<br />
+          색채심리학을 기반으로<br />
+          당신에게 위안이 될 수 있는 방을 보여드립니다.<br />
+          이를 활용하여 당신만의 공간을 꾸며보세요.<br />
           <br />
-          이 작업이 여러분의 삶에 도움이 될 수 있길 바랍니다.<br />
+          많은 참여 부탁드립니다.<br />
           <br />
           감사합니다.<br />
-          Syeon 올림
+          Syeon
         </p>
         <button className="intro-btn-start" onClick={() => goNextPage()}>시작하기</button>
       </div>

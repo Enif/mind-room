@@ -10,8 +10,8 @@ function Router() {
 
     const makePage = (idx: number) => {
         if (!idx) {
-            // return <Result />
-            return <Intro />
+            return <Result />
+            // return <Intro />
         }
         else {
             return <Question />

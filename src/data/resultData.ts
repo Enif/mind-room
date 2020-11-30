@@ -40,20 +40,8 @@ const resultData: resultDataType[] = [
         contactFontColor: "#6A6A6A",
         contactIconColor: "#aaaaaa",
         emailBackgroundColor: "#F89C00",
-        replayIconColor: "#aaaaaa"    
+        replayIconColor: "#E66100"    
     }
-    // {
-    //     color: "green",
-    //     img: imgGreen,
-    //     mainFontColor: "#aaaaaa",
-    //     title:"Green",
-    //     titleFontColor: "#aaaaaa",
-    //     textFontColor: "#aaaaaa",
-    //     buttonFontColor: "aaaaaa",
-    //     iconColor: "aaaaaa",
-    //     buttonColor: "#aaaaaa",    
-    //     backgroundColor: "#aaaaaa"
-    // }
 ]
 
 export default resultData;

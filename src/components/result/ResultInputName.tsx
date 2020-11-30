@@ -10,9 +10,9 @@ type ResultInputNameProps = {
 function ResultInputName({ goNext, username, onChange }: ResultInputNameProps) {
 
     return (
-        <div className="result-wrp">
-            <img className="result-outline" src={resultOutlineImg} />
-            <div className="result-inner">
+        <div className="result-wrp main">
+            <img className="result-outline main" src={resultOutlineImg} />
+            <div className="result-inner main input-name">
                 <p>이름을 입력해주세요.</p>
                 <input className="result-input-name" type="text" value={username} onChange={onChange} />
                 <button className="result-btn-view" onClick={goNext}>확인</button>

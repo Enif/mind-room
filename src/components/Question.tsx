@@ -2,16 +2,16 @@ import React, { useState, useEffect, useCallback } from 'react';
 import usePage from '../hooks/usePage';
 import useAnswer from '../hooks/useAnswer';
 
-import qData from '../questions.json';
-import q1Img from '../assets/img/q1.jpg'
-import q2Img from '../assets/img/q2.jpg'
-import q3Img from '../assets/img/q3_1.jpg'
-import q4Img from '../assets/img/q4.jpg'
-import q5Img from '../assets/img/q5.jpg'
-import q6Img from '../assets/img/q6.jpg'
-import q7Img from '../assets/img/q7.jpg'
-import q8Img from '../assets/img/q8.jpg'
-import q9Img from '../assets/img/q9.jpg'
+import qData from '../data/questionData';
+import q1Img from '../assets/img/questions/q1.jpg'
+import q2Img from '../assets/img/questions/q2.jpg'
+import q3Img from '../assets/img/questions/q3.jpg'
+import q4Img from '../assets/img/questions/q4.jpg'
+import q5Img from '../assets/img/questions/q5.jpg'
+import q6Img from '../assets/img/questions/q6.jpg'
+import q7Img from '../assets/img/questions/q7.jpg'
+import q8Img from '../assets/img/questions/q8.jpg'
+import q9Img from '../assets/img/questions/q9.jpg'
 
 import Navigator from './Navigator';
 import Result from './result/Result';
