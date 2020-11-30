@@ -1,26 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import usePage from '../hooks/usePage';
 import Lottie from 'lottie-react';
 import data from '../bodymovin/data.json';
+import letterOpenSound from '../assets/sounds/letterOpen.mp3';
 import './intro.scss';
 
 function Intro() {
 
   const { goNextPage } = usePage();
+  const [isLetterOpened, setIsLetterOpened] = useState(false);
   const [isMsgOn, setIsMsgOn] = useState(false);
   const [isLottiePlay, setIsLottiePlay] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null)
 
   const onAnimationEnd = () => {
     setIsMsgOn(true)
   }
 
-  const onClick = () => {
-
+  const onClickLetter = () => {
+    if (audioRef.current && !isLetterOpened) {
+      audioRef.current.play();
+    }
+    setIsLottiePlay(true);
+    setIsLetterOpened(true);
   }
 
   return (
-    <div className="intro-wrp" onClick={() => setIsLottiePlay(true)}>
+    <div className="intro-wrp" onClick={onClickLetter}>
       <Lottie className="lottie-wrp" autoplay={isLottiePlay} animationData={data} loop={false} onComplete={onAnimationEnd} />
+      <div className={`intro-msg${isLetterOpened ? " hidden" : ""}`}>
+        <p>편지가 도착했습니다.</p>
+      </div>
       <div className={`intro-msg${isMsgOn ? "" : " hidden"}`}>
         <h5>마음의 방으로 초대합니다</h5>
         <p>안녕하세요, 아티스트 Syeon입니다.<br />
@@ -39,6 +49,7 @@ function Intro() {
         </p>
         <button className="intro-btn-start" onClick={() => goNextPage()}>시작하기</button>
       </div>
+      <audio ref={audioRef} src={letterOpenSound}></audio>
     </div>
   );
 }

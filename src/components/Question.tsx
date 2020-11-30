@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import usePage from '../hooks/usePage';
 import useAnswer from '../hooks/useAnswer';
 
@@ -18,6 +18,7 @@ import Result from './result/Result';
 import styled from 'styled-components';
 
 import './question.scss'
+import useSound from '../hooks/useSound';
 
 type answerType = {
     text: string
@@ -33,6 +34,10 @@ const StyledParagraph = styled.p<{ textAlign?: string }>`
     text-align: ${props => props.textAlign || "center"};
 `
 
+const StyledIcon = styled.i<{
+}>`
+    color: ${props => props.color || "#FFF"};
+`
 
 function Question() {
 
@@ -40,6 +45,7 @@ function Question() {
     const { setAnswer } = useAnswer();
     const [qIdx, setQIdx] = useState(0);
     const [isAnswerOpened, setIsAnswerOpened] = useState(false);
+    const { isSoundOn, soundOn, soundOff } = useSound();
 
     const data = qData[pageIdx - 1];
 
@@ -172,6 +178,18 @@ function Question() {
 
                         <div className="question-inner">
                             {setBackgroudImg(pageIdx)}
+                            {
+                                isSoundOn ?
+                                    <button className="btn-sound" onClick={() => soundOff()}>
+                                        <StyledIcon className="ri-music-2-fill" color={data.questionColor}></StyledIcon>
+                                        {/* <i className="ri-music-2-fill"></i> */}
+                                    </button>
+                                    :
+                                    <button className="btn-sound" onClick={() => soundOn()}>
+                                        <StyledIcon className="ri-music-2-line" color={data.questionColor}></StyledIcon>
+                                        {/* <i className="ri-music-2-line"></i> */}
+                                    </button>
+                            }
                             {makeQuestionList(data.question, qIdx, data.questionColor, data["text-aline"])}
                             {
                                 isAnswerOpened &&
@@ -179,7 +197,7 @@ function Question() {
                             }
                             {
                                 data.sound &&
-                                <audio src={data.sound} autoPlay loop />
+                                <audio muted={!isSoundOn} src={data.sound} autoPlay loop />
                             }
                         </div>
                         <Navigator />
