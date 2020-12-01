@@ -8,8 +8,9 @@ function usePage() {
 
     const goNextPage = () => dispatch(goNext());
     const goPrevPage = () => dispatch(goPrev());
+    const goPage = (idx: number) => dispatch(go(idx));
 
-    return { pageIdx, goNextPage, goPrevPage }
+    return { pageIdx, goPage, goNextPage, goPrevPage }
 }
 
 export default usePage;

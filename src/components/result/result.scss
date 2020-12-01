@@ -56,6 +56,12 @@
   width: 250px;
 }
 
+.btn-sound.result {
+  top: 2.5rem;
+  right: 2rem;
+  font-size: 1.5rem;
+}
+
 .result-main-paragraph {
   margin: 1rem 0;
   color: #6a6a6a;
@@ -171,5 +177,41 @@
   font-weight: bold;
   &::after {
     content: ".............................";
+  }
+}
+
+.result-popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: #2B2B2B;
+  opacity: 70%;
+  color: #FFFFFF;
+  padding: 1rem;
+  .result-popup-btn-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+  }
+  h4 {
+    font-size: 2rem;
+    margin: 1.5rem;
+  }
+  h5 {
+    text-align: left;
+  }
+  ul {
+    font-weight: normal;
+    text-align: left;
+  }
+  li {
+    margin: 0.3rem;
   }
 }

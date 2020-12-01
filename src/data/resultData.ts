@@ -1,14 +1,45 @@
-import imgYellow from '../assets/img/results/result_yellow.gif';
-import imgOrange from '../assets/img/results/result_orange.gif';
-import imgGreen from '../assets/img/results/result_green.gif';
-import imgSky from '../assets/img/results/result_sky.gif';
-import imgNavy from '../assets/img/results/result_navy.gif';
-import imgPink from '../assets/img/results/result_pink.gif';
-import imgBrown from '../assets/img/results/result_brown.gif';
+import imgYellow from '../assets/img/results/img_yellow.png';
+import imgOrange from '../assets/img/results/img_orange.png';
+import imgGreen from '../assets/img/results/img_green.png';
+import imgSky from '../assets/img/results/img_sky.png';
+import imgNavy from '../assets/img/results/img_navy.png';
+import imgPink from '../assets/img/results/img_pink.png';
+import imgBrown from '../assets/img/results/img_brown.png';
+import imgWhite from '../assets/img/results/img_white.png';
+
+import gifYellow from '../assets/img/results/gif_yellow.gif';
+import gifOrange from '../assets/img/results/gif_orange.gif';
+import gifGreen from '../assets/img/results/gif_green.gif';
+import gifSky from '../assets/img/results/gif_sky.gif';
+import gifNavy from '../assets/img/results/gif_navy.gif';
+import gifPink from '../assets/img/results/gif_pink.gif';
+import gifBrown from '../assets/img/results/gif_brown.gif';
+import gifWhite from '../assets/img/results/gif_white.gif';
+
+import webpYellow from '../assets/img/results/webp_yellow.webp';
+import webpOrange from '../assets/img/results/webp_orange.webp';
+import webpGreen from '../assets/img/results/webp_green.webp';
+import webpSky from '../assets/img/results/webp_sky.webp';
+import webpNavy from '../assets/img/results/webp_navy.webp';
+import webpPink from '../assets/img/results/webp_pink.webp';
+import webpBrown from '../assets/img/results/webp_brown.webp';
+import webpWhite from '../assets/img/results/webp_white.webp';
+
+import soundYellow from '../assets/sounds/r_yellow.mp3';
+import soundOrange from '../assets/sounds/r_orange.mp3';
+import soundGreen from '../assets/sounds/r_green.mp3';
+import soundSky from '../assets/sounds/r_sky.mp3';
+import soundNavy from '../assets/sounds/r_navy.mp3';
+import soundPink from '../assets/sounds/r_pink.mp3';
+import soundBrown from '../assets/sounds/r_pink.mp3';
+import soundWhite from '../assets/sounds/r_white.mp3';
 
 export type resultDataType = {
     color: string,
     img: string,
+    gifImg: string,
+    webpImg: string,
+    sound: string,
     backgroundColor: string
     usernameFontColor: string,
     soundIconColor: string,
@@ -31,6 +62,9 @@ const resultData: resultDataType[] = [
     {
         color: "red",
         img: imgYellow,
+        gifImg: gifYellow,
+        webpImg: webpYellow,
+        sound: soundYellow,
         backgroundColor: "#FFCE00",
         usernameFontColor: "#846B00",
         soundIconColor: "#FFD899",
@@ -51,6 +85,9 @@ const resultData: resultDataType[] = [
     {
         color: "orange",
         img: imgOrange,
+        gifImg: gifOrange,
+        webpImg: webpOrange,
+        sound: soundOrange,
         backgroundColor: "#FF9D00",
         usernameFontColor: "#9A4F00",
         soundIconColor: "#FFD899",
@@ -72,6 +109,9 @@ const resultData: resultDataType[] = [
     {
         color: "green",
         img: imgGreen,
+        gifImg: gifGreen,
+        webpImg: webpGreen,
+        sound: soundGreen,
         backgroundColor: "#316200",
         usernameFontColor: "#BEE300",
         soundIconColor: "#D6E0CC",
@@ -92,6 +132,9 @@ const resultData: resultDataType[] = [
     {
         color: "sky",
         img: imgSky,
+        gifImg: gifSky,
+        webpImg: webpSky,
+        sound: soundSky,
         backgroundColor: "#67DCFF",
         usernameFontColor: "#007EBE",
         soundIconColor: "#E1F8FF",
@@ -112,6 +155,9 @@ const resultData: resultDataType[] = [
     {
         color: "navy",
         img: imgNavy,
+        gifImg: gifNavy,
+        webpImg: webpNavy,
+        sound: soundNavy,
         backgroundColor: "#092255",
         usernameFontColor: "#00A0FF",
         soundIconColor: "#063B75",
@@ -132,6 +178,9 @@ const resultData: resultDataType[] = [
     {
         color: "pink",
         img: imgPink,
+        gifImg: gifPink,
+        webpImg: webpPink,
+        sound: soundPink,
         backgroundColor: "#F491AC",
         usernameFontColor: "#C40071",
         soundIconColor: "#FDE9EE",
@@ -152,6 +201,9 @@ const resultData: resultDataType[] = [
     {
         color: "brown",
         img: imgBrown,
+        gifImg: gifBrown,
+        webpImg: webpBrown,
+        sound: soundBrown,
         backgroundColor: "#7C5431",
         usernameFontColor: "#C99A48",
         soundIconColor: "#C99A48",
@@ -171,7 +223,10 @@ const resultData: resultDataType[] = [
     },
     {
         color: "white",
-        img: imgYellow,
+        img: imgWhite,
+        gifImg: gifWhite,
+        webpImg: webpWhite,
+        sound: soundWhite,
         backgroundColor: "#FFFFFF",
         usernameFontColor: "#006820",
         soundIconColor: "#CCCCCC",
@@ -179,7 +234,7 @@ const resultData: resultDataType[] = [
         titleFontColor: "#7ED2DC",
         question: "마음이 편안하고 안정적이네요!",
         questionFontColor: "#A3B900",
-        text: "당신은 마음의 정원을 잘 가꾸고 계시는 군요. 앞으로도 스스로의 감정을 돌보고 아끼며 행복한 삶을 살아가기를 바랄게요. 혹시라도 마음에 흔들림이 생긴다면 언제든 다시 찾아와 주세요. 당신을 위한 방이 항상 준비되어 있답니다 :).",
+        text: "당신은 마음의 정원을 잘 가꾸고 계시는 군요. 앞으로도 스스로의 감정을 돌보고 아끼며 행복한 삶을 살아가기를 바랄게요. 혹시라도 마음에 흔들림이 생긴다면 언제든 다시 찾아와 주세요. 당신을 위한 방이 항상 준비되어 있답니다 :)",
         textFontColor: "#006820",
         buttonColor: "#F8B4B4",
         buttonFontColor: "#FFFFFF",

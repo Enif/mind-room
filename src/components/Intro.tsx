@@ -4,6 +4,7 @@ import Lottie from 'lottie-react';
 import data from '../bodymovin/data.json';
 import letterOpenSound from '../assets/sounds/letterOpen.mp3';
 import './intro.scss';
+import Footer from './Footer';
 
 function Intro() {
 
@@ -49,6 +50,7 @@ function Intro() {
         </p>
         <button className="intro-btn-start" onClick={() => goNextPage()}>시작하기</button>
       </div>
+      {/* <Footer /> */}
       <audio ref={audioRef} src={letterOpenSound}></audio>
     </div>
   );

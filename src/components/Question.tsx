@@ -19,6 +19,7 @@ import styled from 'styled-components';
 
 import './question.scss'
 import useSound from '../hooks/useSound';
+import Footer from './Footer';
 
 type answerType = {
     text: string
@@ -61,7 +62,7 @@ function Question() {
         const qInterval = setInterval(() => {
             console.log('tick')
             setQIdx(idx => idx + 1)
-        }, 2000)
+        }, 500)
         return () => {
             console.log('clear Interval')
             clearInterval(qInterval)
@@ -201,6 +202,7 @@ function Question() {
                             }
                         </div>
                         <Navigator />
+                        {/* <Footer /> */}
                     </StyledQuestion>
                     :
                     <Result />

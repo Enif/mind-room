@@ -1,13 +1,13 @@
 import React from 'react';
-import usePage from '../hooks/usePage';
+import './footer.scss';
 
 function Footer() {
 
-  const { pageIdx } = usePage();
-
   return (
-      <div className="footer">
-      </div>
+    <div className="footer">
+      <p className="footer-copyright">ⓒ 2020. Syeon. all rights reserved.<br />
+        Programmed by. Enif</p>
+    </div>
   );
 }
 

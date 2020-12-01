@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, useEffect } from 'react';
 import useAnswer from '../../hooks/useAnswer';
 import answersScoreData, { scoreDataType, scoreDataKeys } from '../../data/scoreData';
 import ResultMain from './ResultMain';
@@ -15,6 +15,13 @@ function Result() {
     const { answers } = useAnswer();
     const [resultIndex, setResultIndex] = useState(0);
     const [username, setUsername] = useState("");
+    const [resultColor, setResultColor] = useState("")
+
+    useEffect(() => {
+        const resultScore = calculator();
+        setResultColor(findMax(resultScore))
+        // const resultColor = findMax(resultScore);    
+    }, [])
 
     const calculator = function () {
         const resultScore: scoreDataType = {
@@ -29,6 +36,7 @@ function Result() {
         }
 
         const addScore = function (score: scoreDataType) {
+            // console.log('score >> ', score)
             for (const color in score) {
                 const colorScore = score[color as scoreDataKeys];
                 if (colorScore) {
@@ -36,17 +44,25 @@ function Result() {
                 }
             }
         }
-        
+
         for (const qIdx in answers) {
-            if (answers.hasOwnProperty(qIdx) && answersScoreData[Number.parseInt(qIdx)] && answers[qIdx as answersKeys] >= 0) {
-                const selectedAnswer = answers[qIdx as answersKeys];
-                const answerScore = answersScoreData[Number.parseInt(qIdx)].answers[selectedAnswer]
-                addScore(answerScore.score)
+            if (answers.hasOwnProperty(qIdx)) {
+                const submittedAnswer = answers[qIdx as answersKeys];
+                const answerScoreData = answersScoreData.find(ans => {
+                    return ans.question.toString() === qIdx
+                })
+                let answerScore;
+                if (answerScoreData) {
+                    answerScore = answerScoreData.answers[submittedAnswer];
+                }
+                if (answerScore) {
+                    addScore(answerScore.score);
+                }
             }
         }
 
-        console.log('answers >> ', answers)
-        console.log('resultScore >> ', resultScore);
+        // console.log('answers >> ', answers)
+        // console.log('resultScore >> ', resultScore);
         return resultScore;
     }
 
@@ -65,15 +81,13 @@ function Result() {
         return maxColor;
     }
 
-    const resultScore = calculator();
-    // const resultColor = findMax(resultScore);
-    const resultColor = 'white'
+    // const resultColor = 'white'
 
     const goNext = function () {
         setResultIndex(resultIndex + 1);
     }
 
-    const onChange = function(e: ChangeEvent<HTMLInputElement>) {
+    const onChange = function (e: ChangeEvent<HTMLInputElement>) {
         setUsername(e.target.value)
     }
 
