@@ -1,18 +1,30 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import usePage from '../hooks/usePage';
 import Lottie from 'lottie-react';
 import data from '../bodymovin/data.json';
 import letterOpenSound from '../assets/sounds/letterOpen.mp3';
 import './intro.scss';
 import Footer from './Footer';
+import useBackground from '../hooks/useBackground';
+
+type IntroProps = {
+  setBackgroundColor: (backgroundColor: string) => void;
+}
 
 function Intro() {
+
+// function Intro({ setBackgroundColor }: IntroProps) {
 
   const { goNextPage } = usePage();
   const [isLetterOpened, setIsLetterOpened] = useState(false);
   const [isMsgOn, setIsMsgOn] = useState(false);
   const [isLottiePlay, setIsLottiePlay] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null)
+  const { setBackgroundColor } = useBackground();
+
+  useEffect(() => {
+    setBackgroundColor("#95948a")
+  }, [])
 
   const onAnimationEnd = () => {
     setIsMsgOn(true)

@@ -14,21 +14,15 @@ import q8Img from '../assets/img/questions/q8.jpg'
 import q9Img from '../assets/img/questions/q9.jpg'
 
 import Navigator from './Navigator';
-import Result from './result/Result';
 import styled from 'styled-components';
 
 import './question.scss'
 import useSound from '../hooks/useSound';
-import Footer from './Footer';
+import useBackground from '../hooks/useBackground';
 
 type answerType = {
     text: string
 }
-
-const StyledQuestion = styled.div<{ backgroundColor?: string }>`
-    background-color: ${props => props.backgroundColor || "#FFFFFF"};
-`
-
 
 const StyledParagraph = styled.p<{ textAlign?: string }>`
     color: ${props => props.color || "#FFFFFF"};
@@ -47,9 +41,15 @@ function Question() {
     const [qIdx, setQIdx] = useState(0);
     const [isAnswerOpened, setIsAnswerOpened] = useState(false);
     const { isSoundOn, soundOn, soundOff } = useSound();
+    const { setBackgroundColor } = useBackground();
 
     const data = qData[pageIdx - 1];
 
+    useEffect(() => {
+        console.log('set Color')
+        console.log(data.backgroudColor)
+        setBackgroundColor(data.backgroudColor)
+    }, [pageIdx])
 
     useEffect(() => {
         if (qIdx) {
@@ -174,38 +174,34 @@ function Question() {
     return (
         <>
             {
-                pageIdx <= qData.length ?
-                    <StyledQuestion className="question" backgroundColor={data.backgroudColor}>
-
-                        <div className="question-inner">
-                            {setBackgroudImg(pageIdx)}
-                            {
-                                isSoundOn ?
-                                    <button className="btn-sound" onClick={() => soundOff()}>
-                                        <StyledIcon className="ri-music-2-fill" color={data.questionColor}></StyledIcon>
-                                        {/* <i className="ri-music-2-fill"></i> */}
-                                    </button>
-                                    :
-                                    <button className="btn-sound" onClick={() => soundOn()}>
-                                        <StyledIcon className="ri-music-2-line" color={data.questionColor}></StyledIcon>
-                                        {/* <i className="ri-music-2-line"></i> */}
-                                    </button>
-                            }
-                            {makeQuestionList(data.question, qIdx, data.questionColor, data["text-aline"])}
-                            {
-                                isAnswerOpened &&
-                                makeAnswerList(data.answer)
-                            }
-                            {
-                                data.sound &&
-                                <audio muted={!isSoundOn} src={data.sound} autoPlay loop />
-                            }
-                        </div>
-                        <Navigator />
-                        {/* <Footer /> */}
-                    </StyledQuestion>
-                    :
-                    <Result />
+                // pageIdx <= qData.length ?
+                <div className="question">
+                    <div className="question-inner">
+                        {setBackgroudImg(pageIdx)}
+                        {
+                            isSoundOn ?
+                                <button className="btn-sound" onClick={() => soundOff()}>
+                                    <StyledIcon className="ri-music-2-fill" color={data.questionColor}></StyledIcon>
+                                    {/* <i className="ri-music-2-fill"></i> */}
+                                </button>
+                                :
+                                <button className="btn-sound" onClick={() => soundOn()}>
+                                    <StyledIcon className="ri-music-2-line" color={data.questionColor}></StyledIcon>
+                                    {/* <i className="ri-music-2-line"></i> */}
+                                </button>
+                        }
+                        {makeQuestionList(data.question, qIdx, data.questionColor, data["text-aline"])}
+                        {
+                            isAnswerOpened &&
+                            makeAnswerList(data.answer)
+                        }
+                        {
+                            data.sound &&
+                            <audio muted={!isSoundOn} src={data.sound} autoPlay loop />
+                        }
+                    </div>
+                    <Navigator />
+                </div>
             }
         </>
 

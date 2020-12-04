@@ -3,22 +3,41 @@ import Intro from './Intro';
 import usePage from '../hooks/usePage';
 import Question from './Question';
 import Result from './result/Result';
+import styled from 'styled-components';
+import useBackground from '../hooks/useBackground';
+import Footer from './Footer';
+
+const StyledDiv = styled.div<{
+    backgroundColor?: string
+} >`
+    background-color: ${props => props.backgroundColor};
+ `
 
 function Router() {
 
-    const {pageIdx} = usePage();
+    const { pageIdx } = usePage();
+    const { backgroundColor } = useBackground();
 
     const makePage = (idx: number) => {
         if (!idx) {
-            // return <Result />
             return <Intro />
         }
-        else {
+        else if (idx < 10) {
             return <Question />
+        }
+        else {
+            return <Result />
         }
     }
 
-    return makePage(pageIdx);
+    return (
+        <StyledDiv className="app-wrapper" backgroundColor={backgroundColor}>
+            <div className="app-inner">
+                {makePage(pageIdx)}
+            </div>
+            <Footer />
+        </StyledDiv>
+    )
 }
 
 export default Router;

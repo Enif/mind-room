@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import resultOutlineImgWhite from '../../assets/img/result_outline_white.png';
 import resultOutlineImgBlack from '../../assets/img/result_outline_black.png';
 import resultData from '../../data/resultData';
@@ -7,6 +7,7 @@ import ResultReference from './ResultReference';
 import Footer from '../Footer';
 import usePage from '../../hooks/usePage';
 import useSound from '../../hooks/useSound';
+import useBackground from '../../hooks/useBackground';
 
 type ResultColorProps = {
     color: string;
@@ -66,9 +67,14 @@ function ResultColor({ color, username }: ResultColorProps) {
     const [isOpenRef, setIsOpenRef] = useState(false);
     const { goPage } = usePage();
     const { isSoundOn, soundOn, soundOff } = useSound();
+    const { setBackgroundColor } = useBackground();
 
-    console.log(result)
-    console.log(color)
+    useEffect(() => {
+        if (result) {
+            setBackgroundColor(result.backgroundColor)
+        }
+    }, [])
+
     return (
         <>
             {

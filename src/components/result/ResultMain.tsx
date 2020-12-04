@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import resultMainImg from '../../assets/img/result_main.gif';
 import resultOutlineImg from '../../assets/img/result_outline_black.png';
+import useBackground from '../../hooks/useBackground';
 
 type ResultMainProps = {
     goNext: () => void;
 }
 
 function ResultMain({ goNext }: ResultMainProps) {
+
+    const { setBackgroundColor } = useBackground();
+
+    useEffect(() => {
+        setBackgroundColor("#FFFFFF");
+    })
 
     return (
         <div className="result-wrp main">

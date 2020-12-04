@@ -5,17 +5,23 @@ import ResultMain from './ResultMain';
 import './result.scss';
 import ResultInputName from './ResultInputName';
 import ResultColor from './ResultColor';
+import useBackground from '../../hooks/useBackground';
 
 type answersKeys = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
 
+type ResultProps = {
+    setBackgroundColor: (backgroundColor: string) => void;
+}
 
 
 function Result() {
+    // function Result({ setBackgroundColor }: ResultProps) {
 
     const { answers } = useAnswer();
     const [resultIndex, setResultIndex] = useState(0);
     const [username, setUsername] = useState("");
     const [resultColor, setResultColor] = useState("")
+    const { setBackgroundColor } = useBackground();
 
     useEffect(() => {
         const resultScore = calculator();
