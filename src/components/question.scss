@@ -116,4 +116,11 @@
   border: none;
   font-size: 2rem;
   outline: none;
+  .ri-subtract-line {
+    position: absolute;
+    left: -0.5rem;
+    font-size: 4rem;
+    transform: rotate(-45deg);
+    font-weight: normal;
+  }
 }

@@ -19,6 +19,7 @@ import styled from 'styled-components';
 import './question.scss'
 import useSound from '../hooks/useSound';
 import useBackground from '../hooks/useBackground';
+import SoundOnOff from './common/SoundOnOff';
 
 type answerType = {
     text: string
@@ -178,17 +179,18 @@ function Question() {
                 <div className="question">
                     <div className="question-inner">
                         {setBackgroudImg(pageIdx)}
+                        <SoundOnOff />
                         {
-                            isSoundOn ?
-                                <button className="btn-sound" onClick={() => soundOff()}>
-                                    <StyledIcon className="ri-music-2-fill" color={data.questionColor}></StyledIcon>
-                                    {/* <i className="ri-music-2-fill"></i> */}
-                                </button>
-                                :
-                                <button className="btn-sound" onClick={() => soundOn()}>
-                                    <StyledIcon className="ri-music-2-line" color={data.questionColor}></StyledIcon>
-                                    {/* <i className="ri-music-2-line"></i> */}
-                                </button>
+                            // isSoundOn ?
+                            //     <button className="btn-sound" onClick={() => soundOff()}>
+                            //         <StyledIcon className="ri-music-2-fill" color={data.questionColor}></StyledIcon>
+                            //         {/* <i className="ri-music-2-fill"></i> */}
+                            //     </button>
+                            //     :
+                            //     <button className="btn-sound" onClick={() => soundOn()}>
+                            //         <StyledIcon className="ri-music-2-line" color={data.questionColor}></StyledIcon>
+                            //         {/* <i className="ri-music-2-line"></i> */}
+                            //     </button>
                         }
                         {makeQuestionList(data.question, qIdx, data.questionColor, data["text-aline"])}
                         {

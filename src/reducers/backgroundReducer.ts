@@ -14,7 +14,7 @@ type BackgroundState = {
 }
 
 const initialState: BackgroundState = {
-    backgroundColor: "#FFFFFF"
+    backgroundColor: "#95948a"
 }
 
 function backgroundReducer(state: BackgroundState = initialState, action: BackgroundAction) {

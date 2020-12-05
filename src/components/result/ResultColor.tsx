@@ -4,7 +4,6 @@ import resultOutlineImgBlack from '../../assets/img/result_outline_black.png';
 import resultData from '../../data/resultData';
 import styled from 'styled-components';
 import ResultReference from './ResultReference';
-import Footer from '../Footer';
 import usePage from '../../hooks/usePage';
 import useSound from '../../hooks/useSound';
 import useBackground from '../../hooks/useBackground';
@@ -73,7 +72,7 @@ function ResultColor({ color, username }: ResultColorProps) {
         if (result) {
             setBackgroundColor(result.backgroundColor)
         }
-    }, [])
+    }, [setBackgroundColor, result])
 
     return (
         <>
@@ -83,9 +82,9 @@ function ResultColor({ color, username }: ResultColorProps) {
                         <div className="result-top">
                             {
                                 result.color === "white" ?
-                                    <img className="result-outline" src={resultOutlineImgBlack} />
+                                    <img className="result-outline" alt={"outline"} src={resultOutlineImgBlack} />
                                     :
-                                    <img className="result-outline" src={resultOutlineImgWhite} />
+                                    <img className="result-outline" alt={"outline"} src={resultOutlineImgWhite} />
                             }
                             <div className="result-inner">
                                 {
@@ -101,7 +100,7 @@ function ResultColor({ color, username }: ResultColorProps) {
                                 <StyledParagraph color={result.textFontColor} margin="1rem" fontSize="1.2rem" lineHeight="1.3" className="result-username">For.<br />{username}</StyledParagraph>
                                 <picture className="result-img">
                                     <source type="image/webp" srcSet={result.webpImg} />
-                                    <img src={result.gifImg} />
+                                    <img src={result.gifImg} alt={"resultImg"} />
                                 </picture>
                                 <StyledParagraph color={result.titleFontColor} margin="1rem" fontSize="2rem">{result.title}</StyledParagraph>
                                 <StyledParagraph color={result.questionFontColor} margin="1rem" fontSize="1.5rem">{result.question}</StyledParagraph>

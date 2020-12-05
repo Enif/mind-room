@@ -7,7 +7,6 @@
 
 .App {
   width: 100%;
-
 }
 
 
@@ -23,6 +22,7 @@
 }
 
 .app-inner {
+  position: relative;
   max-width: 478px;
   width: 100%;
 }

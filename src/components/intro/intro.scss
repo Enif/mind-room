@@ -72,3 +72,25 @@
   border-radius: 1.5rem;
   font-size: 1.5rem;
 }
+
+.intro-loading-wrp {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  background-color: #95948a;
+  transition: all 1s;
+  opacity: 1;
+  // min-height: 40vh;
+  &.hide {
+    opacity: 0;
+    // display: none;
+  }
+  .intro-loading-svg {
+    transition: all 1s;
+  }
+
+}

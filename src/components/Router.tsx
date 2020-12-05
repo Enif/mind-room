@@ -1,5 +1,5 @@
 import React from 'react';
-import Intro from './Intro';
+import Intro from './intro/Intro';
 import usePage from '../hooks/usePage';
 import Question from './Question';
 import Result from './result/Result';
