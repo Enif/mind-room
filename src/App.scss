@@ -15,14 +15,15 @@
   // min-height: 100%;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
   transition: background-color 1s linear;
   flex-direction: column;
+  user-select: none;
 }
 
 .app-inner {
   position: relative;
-  max-width: 478px;
+  max-width: 460px;
   width: 100%;
 }

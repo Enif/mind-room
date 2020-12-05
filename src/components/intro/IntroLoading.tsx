@@ -12,7 +12,7 @@ function IntroLoading({ isImageLoaded }: { isImageLoaded: boolean }) {
             setProgress(pr => {
                 return pr < 100 ? pr + 1 : pr
             })
-        }, 10)
+        }, 20)
         return () => {
             clearInterval(prInterval)
         }
@@ -40,11 +40,14 @@ function IntroLoading({ isImageLoaded }: { isImageLoaded: boolean }) {
         <div className={`intro-loading-wrp${isImageLoaded ? " hide" : ""}`} >
             <img className="result-outline main" src={outlineImg} />
             <SoundOnOff />
-            <svg id="svg" className="intro-loading-svg" height="200" width="200">
-                <path ref={svgPath} id="svgPath" d="M 15 142 L 100 200 L 185 142 L 185 57 L 100 0 L 15 57 L 15 142 Z" stroke="white"
-                    strokeWidth="6" fill="none" />
-                <text x="85" y="100" fill="white">{progress}%</text>
+            <p className="intro-sound-text">사운드가 포함된 테스트입니다.<br />소리를 켜주세요!</p>
+            <svg id="svg" className="intro-loading-svg" height="150" width="100">
+                <path ref={svgPath} id="svgPath" d="M 50 0 L 7 28 L 7 73 L 7 71 L 50 100 L 92 71 L 92 28 Z" stroke="white"
+                    strokeWidth="3" fill="none" />
+                <text fontSize="1.2rem" x="35" y="53" fill="white">{progress}%</text>
             </svg>
+            <p className="intro-notice">English version will be updated soon</p>
+
         </div>
     );
 }

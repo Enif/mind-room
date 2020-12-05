@@ -23,7 +23,7 @@ function Intro() {
     setBackgroundColor("#95948a");
     setTimeout(() => {
       setIsImageLoaded(true)
-    }, 3000)
+    }, 4000)
 
   }, [])
 
@@ -56,7 +56,7 @@ function Intro() {
   const onLoadedImages = () => {
     setTimeout(() => {
       setIsImageLoaded(true)
-    }, 2000)
+    }, 3000)
   }
 
   return (
@@ -78,7 +78,7 @@ function Intro() {
       </div>
       <div className={`intro-msg${isMsgOn ? "" : " hidden"}`}>
         <h5>마음의 방으로 초대합니다</h5>
-        <p>안녕하세요, 아티스트 Syeon입니다.<br />
+        <p>안녕하세요, 아티스트 <span className="smaller">Syeon</span>입니다.<br />
           저는 예술을 통해 사람들의 정서적 아픔에 공감하고,<br />
           이를 치유할 수 있는 방법을 연구하고 있습니다.<br />
           <br />

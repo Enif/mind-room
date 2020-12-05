@@ -4,11 +4,15 @@
     font-size: 1.3rem;
     font-weight: bold;
     display: flex;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.65);
     width: 100%;
     justify-content: space-between;
+    cursor: default;
+    .navigator-back {
+        cursor: pointer;
+    }
     p {
-        margin: 0.5rem 1rem;
+        margin: 0.5rem 1rem;        
     }
     // align-items: stretch;
 }

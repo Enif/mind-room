@@ -8,7 +8,7 @@ function Navigator() {
 
     return (
         <div className="navigator">
-            <p onClick={() => goPrevPage()}>&lt; 뒤로가기</p>
+            <p className="navigator-back" onClick={() => goPrevPage()}>&lt; 뒤로가기</p>
             <p>{pageIdx}/9</p>
         </div>
     );

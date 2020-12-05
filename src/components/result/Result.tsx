@@ -21,7 +21,6 @@ function Result() {
     const [resultIndex, setResultIndex] = useState(0);
     const [username, setUsername] = useState("");
     const [resultColor, setResultColor] = useState("")
-    const { setBackgroundColor } = useBackground();
 
     useEffect(() => {
         const resultScore = calculator();

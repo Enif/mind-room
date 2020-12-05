@@ -47,8 +47,8 @@ function Question() {
     const data = qData[pageIdx - 1];
 
     useEffect(() => {
-        console.log('set Color')
-        console.log(data.backgroudColor)
+        // console.log('set Color')
+        // console.log(data.backgroudColor)
         setBackgroundColor(data.backgroudColor)
     }, [pageIdx])
 
@@ -132,17 +132,11 @@ function Question() {
     }
 
     const makeAnswerList = (answers: answerType[]) => {
-        return (
-            <div className="answers-wrp">
-                {
-                    answers.map((answer, idx) => {
-                        return <button className="btn-answer"
-                            key={idx}
-                            onClick={() => onClickAnswer(idx)}>{answer.text}</button>
-                    })
-                }
-            </div>
-        )
+        return answers.map((answer, idx) => {
+            return <button className={`btn-answer`}
+                key={idx}
+                onClick={() => onClickAnswer(idx)}>{answer.text}</button>
+        })
     }
 
     // const onClickQuestion = useCallback(
@@ -170,6 +164,7 @@ function Question() {
         setAnswer(pageIdx, answer);
         setQIdx(0);
         goNextPage();
+        setIsAnswerOpened(false);
     }
 
     return (
@@ -192,14 +187,16 @@ function Question() {
                             //         {/* <i className="ri-music-2-line"></i> */}
                             //     </button>
                         }
-                        {makeQuestionList(data.question, qIdx, data.questionColor, data["text-aline"])}
-                        {
-                            isAnswerOpened &&
-                            makeAnswerList(data.answer)
-                        }
+                        <div className="question-qna" >
+                            {makeQuestionList(data.question, qIdx, data.questionColor, data["text-aline"])}
+                            <div className="answers-wrp">
+                                {isAnswerOpened && makeAnswerList(data.answer)}
+                            </div>
+
+                        </div>
                         {
                             data.sound &&
-                            <audio muted={!isSoundOn} src={data.sound} autoPlay loop />
+                            <audio muted={!isSoundOn} src={data.sound} autoPlay />
                         }
                     </div>
                     <Navigator />

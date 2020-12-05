@@ -1,0 +1,37 @@
+
+.btn-sound {
+    position: absolute;
+    z-index: 1;
+    right: 2.5rem;
+    top: 2.5rem;
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    outline: none;
+    // &.disabled {
+    //   &::before {
+    //     content: "ㅡ";
+    //     font-size: 5rem;
+    //     // height: 3px;
+    //     // width: 2.7rem;
+    //     // background-color: #EEEEEE;
+    //     position: absolute;
+    //     transform: rotate(-45deg);
+    //     top: -1.7rem;
+    //     left: -0.3rem;
+    //   }
+    // }
+    .ri-subtract-line {
+      position: absolute;
+      left: -0.5rem;
+      font-size: 4rem;
+      transform: rotate(-45deg);
+      font-weight: normal;
+    }
+  }
+  
