@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, MouseEvent, useRef } from 'react';
 import resultOutlineImgWhite from '../../assets/img/result_outline_white.png';
 import resultOutlineImgBlack from '../../assets/img/result_outline_black.png';
 import resultData from '../../data/resultData';
@@ -7,6 +7,7 @@ import ResultReference from './ResultReference';
 import usePage from '../../hooks/usePage';
 import useSound from '../../hooks/useSound';
 import useBackground from '../../hooks/useBackground';
+import ClipboardJS from 'clipboard';
 
 type ResultColorProps = {
     color: string;
@@ -67,12 +68,34 @@ function ResultColor({ color, username }: ResultColorProps) {
     const { goPage } = usePage();
     const { isSoundOn, soundOn, soundOff } = useSound();
     const { setBackgroundColor } = useBackground();
+    const emailRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (emailRef.current) {
+            new ClipboardJS(emailRef.current, {
+                text: function () {
+                    return 'syeon.artist@gmail.com';
+                }
+            });
+        }
+    }, [])
 
     useEffect(() => {
         if (result) {
             setBackgroundColor(result.backgroundColor)
         }
     }, [setBackgroundColor, result])
+
+    const onClickShare = function (e: MouseEvent) {
+        let nav: any = window.navigator;
+        if (nav.share) {
+            nav.share({
+                title: 'title',
+                text: 'description',
+                url: location.hostname,
+            })
+        }
+    }
 
     return (
         <>
@@ -110,10 +133,10 @@ function ResultColor({ color, username }: ResultColorProps) {
                         <div className="result-middle">
                             {/* <i className="ri-book-mark-line"></i> */}
                             <StyledIcon className="ri-book-mark-line" color={result.buttonColor} fontSize="2.5rem" onClick={() => setIsOpenRef(true)}></StyledIcon>
-                            <a href={result.img} target="_blank" rel="noreferrer" download>
+                            <a href={result.img} target="_blank" download>
                                 <StyledButton className="result-btn-save" color={result.buttonFontColor} backgroundColor={result.buttonColor}>이미지 저장</StyledButton>
                             </a>
-                            <StyledIcon className="ri-share-fill" color={result.buttonColor} fontSize="2.5rem"></StyledIcon>
+                            <StyledIcon className="ri-share-fill" color={result.buttonColor} fontSize="2.5rem" onClick={onClickShare}></StyledIcon>
 
                         </div>
                         <StyledDiv className="result-divider" color={result.dividerColor}></StyledDiv>
@@ -138,7 +161,7 @@ function ResultColor({ color, username }: ResultColorProps) {
                         </div>
                         <StyledDiv className="result-divider" color={result.dividerColor}></StyledDiv>
                         <div className="result-middle contact">
-                            <StyledDiv className="result-contact-email" backgroundColor={result.emailBackgroundColor}>
+                            <StyledDiv ref={emailRef} className="result-contact-email" backgroundColor={result.emailBackgroundColor} >
                                 <StyledIcon className="ri-mail-line" fontSize="1.7rem"></StyledIcon>
                                 <StyledParagraph fontSize="1.5rem">syeon.artist@gmail.com</StyledParagraph>
                             </StyledDiv>
