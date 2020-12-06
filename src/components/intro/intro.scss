@@ -7,6 +7,18 @@
   }
 }
 
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .intro-wrp {
   // background-color: #95948a;
   height: 100%;
@@ -24,14 +36,20 @@
   justify-content: center;
   flex-direction: column;
   //   opacity: 0;
-  //   animation-name: show;
-  //   animation-duration: 2s;
-  //   animation-delay: 3s;
   transition: all 1;
 
   &.hidden {
     opacity: 0;
     // display: none;
+  }
+  .intro-msg-click {
+    opacity: 0;
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    font-size: 1rem;
+    margin-top: 1rem;
   }
 
   h5,

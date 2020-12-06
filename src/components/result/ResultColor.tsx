@@ -8,6 +8,7 @@ import usePage from '../../hooks/usePage';
 import useSound from '../../hooks/useSound';
 import useBackground from '../../hooks/useBackground';
 import ClipboardJS from 'clipboard';
+import SoundOnOff from '../common/SoundOnOff';
 
 type ResultColorProps = {
     color: string;
@@ -31,7 +32,7 @@ const StyledParagraph = styled.p<{
 }>`
     color: ${props => props.color || "#FFFFFF"};
     margin: ${props => props.margin || "0"};
-    font-size: ${props => props.fontSize || "1rem"};
+    font-size: ${props => props.fontSize};
     line-height: ${props => props.lineHeight || "1"};
     text-align: ${props => props.textAlign || 'center'};
 `
@@ -111,8 +112,9 @@ function ResultColor({ color, username }: ResultColorProps) {
                                     :
                                     <img className="result-outline" alt={"outline"} src={resultOutlineImgWhite} />
                             }
-                            <div className="result-inner">
-                                {
+                            <div className="result-inner color">
+                                <SoundOnOff className="result-btn-sound" color={result.textFontColor} size={"1.5rem"} />
+                                {/* {
                                     isSoundOn ?
                                         <button className="btn-sound result" onClick={() => soundOff()}>
                                             <StyledIcon className="ri-music-2-fill" color={result.textFontColor}></StyledIcon>
@@ -121,13 +123,13 @@ function ResultColor({ color, username }: ResultColorProps) {
                                         <button className="btn-sound result" onClick={() => soundOn()}>
                                             <StyledIcon className="ri-music-2-line" color={result.textFontColor}></StyledIcon>
                                         </button>
-                                }
+                                } */}
                                 <StyledParagraph color={result.textFontColor} margin="1rem" fontSize="1.2rem" lineHeight="1.3" className="result-username">For.<br />{username}</StyledParagraph>
                                 <picture className="result-img">
                                     <source type="image/webp" srcSet={result.webpImg} />
                                     <img src={result.gifImg} alt={"resultImg"} />
                                 </picture>
-                                <StyledParagraph color={result.titleFontColor} margin="1rem" fontSize="2rem">{result.title}</StyledParagraph>
+                                <StyledParagraph color={result.titleFontColor} margin="1rem 0rem 1.5rem 0" fontSize="2rem">{result.title}</StyledParagraph>
                                 <StyledParagraph color={result.questionFontColor} margin="1rem" fontSize="1.5rem">{result.question}</StyledParagraph>
                                 <StyledParagraph color={result.textFontColor} margin="1rem" fontSize="1.3rem" lineHeight="1.1" textAlign="justify">{result.text}</StyledParagraph>
                                 <StyledParagraph color={result.questionFontColor} margin="1rem" fontSize="1.5rem">- Interior Tips -</StyledParagraph>
@@ -145,7 +147,7 @@ function ResultColor({ color, username }: ResultColorProps) {
                         </div>
                         <StyledDiv className="result-divider" color={result.dividerColor}></StyledDiv>
                         <div className="result-middle contact">
-                            <StyledParagraph color={result.contactFontColor} fontSize="1.5rem">Syeon's artworks &gt;&gt;</StyledParagraph>
+                            <StyledParagraph color={result.contactFontColor} >Syeon's artworks &gt;&gt;</StyledParagraph>
                             <div className="result-icons-right">
                                 <a href="https://www.instagram.com/syeon.artist/" target="_blank" rel="noopener noreferrer">
                                     <StyledIcon color={result.contactFontColor} fontSize="2rem" className="ri-instagram-line"></StyledIcon>
@@ -158,8 +160,8 @@ function ResultColor({ color, username }: ResultColorProps) {
                                 </a>
                             </div>
                         </div>
-                        <div className="result-middle">
-                            <StyledParagraph color={result.contactFontColor} fontSize="1.5rem">Enif's Github &gt;&gt;</StyledParagraph>
+                        <div className="result-middle contact">
+                            <StyledParagraph color={result.contactFontColor} >Enif's Github &gt;&gt;</StyledParagraph>
                             <div className="result-icons-right">
                                 <a href="https://github.com/KYJ-Enif" target="_blank" rel="noopener noreferrer">
                                     <StyledIcon color={result.contactFontColor} fontSize="2rem" className="ri-github-fill"></StyledIcon>
@@ -170,11 +172,11 @@ function ResultColor({ color, username }: ResultColorProps) {
                         <div className="result-middle contact">
                             <StyledDiv ref={emailRef} className="result-contact-email" backgroundColor={result.emailBackgroundColor} >
                                 <StyledIcon className="ri-mail-line" fontSize="1.7rem"></StyledIcon>
-                                <StyledParagraph fontSize="1.5rem">syeon.artist@gmail.com</StyledParagraph>
+                                <StyledParagraph >syeon.artist@gmail.com</StyledParagraph>
                             </StyledDiv>
                         </div>
                         <div className="result-middle center">
-                            <StyledSvg onClick={() => goPage(0)} fill={result.replayIconColor} height="3em" xmlns="http://www.w3.org/2000/svg" version="1.1" id="레이어_1" x="0px" y="0px" viewBox="0 0 96 96" >
+                            <StyledSvg className="btn-gohome" onClick={() => goPage(0)} fill={result.replayIconColor} height="3em" xmlns="http://www.w3.org/2000/svg" version="1.1" id="레이어_1" x="0px" y="0px" viewBox="0 0 96 96" >
                                 <path d="M84,80c0,2.2-1.8,4-4,4H16c-2.2,0-4-1.8-4-4V38c0-1.2,0.6-2.4,1.5-3.2l32-24.9c1.4-1.1,3.5-1.1,4.9,0l32,24.9  c1,0.8,1.5,1.9,1.5,3.2C84,38,84,80,84,80z M76,76V39.9L48,18.1L20,39.9V76H76z" />
                                 <path d="M48,67.8L27.3,51.2L48,34.7V45c11.4,0,20.7,9.3,20.7,20.7c0,0.6,0,1.1-0.1,1.7c-3-5.7-9-9.7-15.8-9.9l-0.6,0H48V67.8z" />
                             </StyledSvg>

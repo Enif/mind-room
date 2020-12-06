@@ -19,7 +19,7 @@ function ResultMain({ goNext }: ResultMainProps) {
     })
 
     const onImageLoad = function (e: SyntheticEvent) {
-        console.log('onload')
+        // console.log('onload')
         setIsImgLoading(false)
     }
 
@@ -29,7 +29,7 @@ function ResultMain({ goNext }: ResultMainProps) {
             <div className="result-inner main">
                 <div className="result-main-img-wrp">
                     <picture className="result-main-img" onLoad={onImageLoad}>
-                        {/* <source type="image/webp" srcSet={resultMainImgWebp} /> */}
+                        <source type="image/webp" srcSet={resultMainImgWebp} />
                         <img src={resultMainImgGif} alt={"resultMainImgGif"} />
                     </picture>
                     {/* <MiniLoading isLoaded={!isImgLoading} /> */}

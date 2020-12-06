@@ -30,7 +30,6 @@ const initialState: PageState = {
 function pageReducer(state: PageState = initialState, action: PageAction) {
     switch (action.type) {
         case GO:
-            console.log(action)
             return {
                 ...state,
                 pageIdx: action.idx

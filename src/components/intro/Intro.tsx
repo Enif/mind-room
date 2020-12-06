@@ -77,7 +77,11 @@ function Intro() {
         loop={false}
         onComplete={onAnimationEnd} />
       <div className={`intro-msg${isLetterOpened ? " hidden" : ""}`}>
-        {isHideLoading && <p>편지가 도착했습니다.</p>}
+        {isHideLoading &&
+          <>
+            <p>편지가 도착했습니다.</p>
+            <p className="intro-msg-click">봉투를 클릭하세요</p>
+          </>}
       </div>
       <div className={`intro-msg${isMsgOn ? "" : " hidden"}`}>
         <h5>마음의 방으로 초대합니다</h5>

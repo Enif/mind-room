@@ -39,7 +39,7 @@ function IntroLoading({ isImageLoaded }: { isImageLoaded: boolean }) {
     return (
         <div className={`intro-loading-wrp${isImageLoaded ? " hide" : ""}`} >
             <img className="result-outline main" src={outlineImg} />
-            <SoundOnOff />
+            <SoundOnOff className="intro-btn-sound" />
             <p className="intro-sound-text">사운드가 포함된 테스트입니다.<br />소리를 켜주세요!</p>
             <svg id="svg" className="intro-loading-svg" height="150" width="100">
                 <path ref={svgPath} id="svgPath" d="M 50 0 L 7 28 L 7 73 L 7 71 L 50 100 L 92 71 L 92 28 Z" stroke="white"

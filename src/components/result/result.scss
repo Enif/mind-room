@@ -35,7 +35,7 @@
       p {
         font-size: 1.5rem;
         margin: 0.5rem;
-        color: #6A6A6A;
+        color: #6a6a6a;
       }
       input {
         width: 100%;
@@ -45,6 +45,9 @@
         font-family: "NanumBaReunHiPi";
       }
     }
+  }
+  &.color {
+    padding-bottom: 1rem;
   }
 }
 
@@ -106,13 +109,11 @@
   padding: 2rem;
 }
 
-
-
 .result-input-name {
   height: 2rem;
   border: none;
   border-bottom: 1px solid black;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
 }
 
 .result-username {
@@ -168,7 +169,18 @@
     }
   }
   &.contact {
-    margin: 1.3rem 0 0.6rem 0;
+    margin: 1.2rem 0 0.6rem 0;
+    font-size: 1.5rem;
+    @media screen and (max-width: 375px) {
+      font-size: 1.3rem;
+    }
+    @media screen and (max-width: 340px) {
+      font-size: 1.1rem;
+    }
+
+    p {
+      padding-bottom: 0.3rem;
+    }
   }
   &.center {
     justify-content: center;
@@ -208,6 +220,10 @@
   }
 }
 
+.btn-gohome {
+  cursor: pointer;
+}
+
 .result-popup {
   position: absolute;
   top: 0;
@@ -216,7 +232,7 @@
   min-height: 100%;
   background-color: rgba(255, 255, 255, 0.9);
   // opacity: 70%;
-  color: #6A6A6A;
+  color: #6a6a6a;
   padding: 1rem;
   font-size: 1.2rem;
   text-align: center;
@@ -225,7 +241,7 @@
     top: 1rem;
     right: 1rem;
     background: none;
-    color: #6A6A6A;
+    color: #6a6a6a;
     font-size: 1.5rem;
     border: none;
     outline: none;
@@ -251,6 +267,5 @@
     text-align: center;
     margin: 0.5rem;
     line-height: 1.3;
-
   }
 }

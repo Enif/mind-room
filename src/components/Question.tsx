@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, MouseEvent } from 'react';
 import usePage from '../hooks/usePage';
 import useAnswer from '../hooks/useAnswer';
 
@@ -19,7 +19,7 @@ import styled from 'styled-components';
 import './question.scss'
 import useSound from '../hooks/useSound';
 import useBackground from '../hooks/useBackground';
-import SoundOnOff from './common/SoundOnOff';
+// import SoundOnOff from './common/SoundOnOff';
 
 type answerType = {
     text: string
@@ -30,10 +30,10 @@ const StyledParagraph = styled.p<{ textAlign?: string }>`
     text-align: ${props => props.textAlign || "center"};
 `
 
-const StyledIcon = styled.i<{
-}>`
-    color: ${props => props.color || "#FFF"};
-`
+// const StyledIcon = styled.i<{
+// }>`
+//     color: ${props => props.color || "#FFF"};
+// `
 
 function Question() {
 
@@ -41,7 +41,7 @@ function Question() {
     const { setAnswer } = useAnswer();
     const [qIdx, setQIdx] = useState(0);
     const [isAnswerOpened, setIsAnswerOpened] = useState(false);
-    const { isSoundOn, soundOn, soundOff } = useSound();
+    const { isSoundOn } = useSound();
     const { setBackgroundColor } = useBackground();
 
     const data = qData[pageIdx - 1];
@@ -50,31 +50,29 @@ function Question() {
         // console.log('set Color')
         // console.log(data.backgroudColor)
         setBackgroundColor(data.backgroudColor)
-    }, [pageIdx])
+    }, [pageIdx, data.backgroudColor, setBackgroundColor])
 
     useEffect(() => {
-        if (qIdx) {
-            setQIdx(0);
-        }
+        setQIdx(0);
         if (isAnswerOpened) {
             setIsAnswerOpened(false);
         }
-        console.log('make Interval')
-        const qInterval = setInterval(() => {
-            console.log('tick')
-            setQIdx(idx => idx + 1)
-        }, 500)
-        return () => {
-            console.log('clear Interval')
-            clearInterval(qInterval)
-        }
-    }, [pageIdx])
+        // // console.log('make Interval')
+        // const qInterval = setInterval(() => {
+        //     // console.log('tick')
+        //     setQIdx(idx => idx + 1)
+        // }, 2000)
+        // return () => {
+        //     // console.log('clear Interval')
+        //     clearInterval(qInterval)
+        // }
+    }, [pageIdx, setIsAnswerOpened])
 
     useEffect(() => {
         if (data && (qIdx > data.question.length - 1) && !isAnswerOpened) {
             setIsAnswerOpened(true)
         }
-    }, [qIdx])
+    }, [qIdx, pageIdx])
 
 
     const makeImgClassName = (pageIdx: number, imgIdx: number, ) => {
@@ -93,15 +91,15 @@ function Question() {
     const setBackgroudImg = (idx: number) => {
         return (
             <>
-                <img className={makeImgClassName(idx, 1)} src={q1Img} />
-                <img className={makeImgClassName(idx, 2)} src={q2Img} />
-                <img className={makeImgClassName(idx, 3)} src={q3Img} />
-                <img className={makeImgClassName(idx, 4)} src={q4Img} />
-                <img className={makeImgClassName(idx, 5)} src={q5Img} />
-                <img className={makeImgClassName(idx, 6)} src={q6Img} />
-                <img className={makeImgClassName(idx, 7)} src={q7Img} />
-                <img className={makeImgClassName(idx, 8)} src={q8Img} />
-                <img className={makeImgClassName(idx, 9)} src={q9Img} />
+                <img className={makeImgClassName(idx, 1)} src={q1Img} alt="q1Img" />
+                <img className={makeImgClassName(idx, 2)} src={q2Img} alt="q2Img" />
+                <img className={makeImgClassName(idx, 3)} src={q3Img} alt="q3Img" />
+                <img className={makeImgClassName(idx, 4)} src={q4Img} alt="q4Img" />
+                <img className={makeImgClassName(idx, 5)} src={q5Img} alt="q5Img" />
+                <img className={makeImgClassName(idx, 6)} src={q6Img} alt="q6Img" />
+                <img className={makeImgClassName(idx, 7)} src={q7Img} alt="q7Img" />
+                <img className={makeImgClassName(idx, 8)} src={q8Img} alt="q8Img" />
+                <img className={makeImgClassName(idx, 9)} src={q9Img} alt="q9Img" />
             </>
         )
     }
@@ -139,6 +137,11 @@ function Question() {
         })
     }
 
+    const onClickBackground = (e: MouseEvent<HTMLDivElement>) => {
+        // e.stopPropagation();
+        setQIdx(idx => idx + 1);
+    }
+
     // const onClickQuestion = useCallback(
     //     () => {
     //         if (qIdx < data.question.length - 1) {
@@ -172,9 +175,9 @@ function Question() {
             {
                 // pageIdx <= qData.length ?
                 <div className="question">
-                    <div className="question-inner">
+                    <div className="question-inner" onClick={onClickBackground}>
                         {setBackgroudImg(pageIdx)}
-                        <SoundOnOff />
+                        {/* <SoundOnOff /> */}
                         {
                             // isSoundOn ?
                             //     <button className="btn-sound" onClick={() => soundOff()}>
