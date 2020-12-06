@@ -3,12 +3,14 @@ import pageReducer from './pageReducer';
 import answerReducer from './answerReducer';
 import soundReducer from './soundReducer';
 import backgroundReducer from './backgroundReducer';
+import bgmReducer from './bgmReducer';
 
 const rootReducer = combineReducers({
     pageReducer,
     answerReducer,
     soundReducer,
-    backgroundReducer
+    backgroundReducer,
+    bgmReducer
 });
 
 export default rootReducer;

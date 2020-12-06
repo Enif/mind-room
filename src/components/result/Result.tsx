@@ -6,6 +6,10 @@ import './result.scss';
 import ResultInputName from './ResultInputName';
 import ResultColor from './ResultColor';
 import useBackground from '../../hooks/useBackground';
+// import axios, { AxiosPromise } from 'axios';
+import Axios from 'axios';
+
+const SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
 
 type answersKeys = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
 
@@ -21,12 +25,25 @@ function Result() {
     const [resultIndex, setResultIndex] = useState(0);
     const [username, setUsername] = useState("");
     const [resultColor, setResultColor] = useState("")
+    
 
     useEffect(() => {
         const resultScore = calculator();
-        setResultColor(findMax(resultScore))
+        const resultColor = findMax(resultScore)
+        setResultColor(resultColor);
+        postResut(resultColor);
         // const resultColor = findMax(resultScore);    
     }, [])
+
+    const postResut = function (color: string) {
+        Axios.post(`${SERVER_URL}/result`, { color: color })
+        .then(() => {
+            console.log('result is posted')
+        })
+        .catch((err) => {
+            console.error(err)
+        })
+    }
 
     const calculator = function () {
         const resultScore: scoreDataType = {

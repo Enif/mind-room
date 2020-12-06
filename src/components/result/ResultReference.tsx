@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 type ResultReferenceProps = {
     close: () => void;
@@ -6,25 +6,28 @@ type ResultReferenceProps = {
 
 function ResultReference({ close }: ResultReferenceProps) {
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    })
+
     return (
-        <div className="result-popup">
-            <button className="result-popup-btn-close" onClick={() => close()}>
+        <div className="result-popup" onClick={() => close()}>
+            <button className="result-popup-btn-close">
                 <i className="ri-close-fill"></i>
             </button>
             <h4>&lt;기획&gt;</h4>
             <p>Syeon</p>
             <h4>&lt;문항구성&gt;</h4>
             <p>Syeon</p>
-            <h4>&lt;문구&gt;</h4>
+            <h4>&lt;글&gt;</h4>
             <p>Syeon</p>
             <h4>&lt;일러스트 및 디자인&gt;</h4>
             <p>Syeon</p>
             <h4>&lt;개발&gt;</h4>
             <p>Enif</p>
             <h4>&lt;사운드 디자인&gt;</h4>
-            <p>Syeon, Myn, Sound Effects by CCL</p>
+            <p>Myn, Syeon</p>
             <h4>&lt;참고 문헌&gt;</h4>
-
             <h5>- 단행본 -</h5>
             <ul>
                 <li>김선현. 2009. 컬러가 내 몸을 바꾼다:몸을 다스리고 마음을 움직이는 컬러테라피. 넥서스.</li>

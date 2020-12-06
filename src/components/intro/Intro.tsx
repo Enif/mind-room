@@ -6,6 +6,7 @@ import letterOpenSound from '../../assets/sounds/letterOpen.mp3';
 import usePage from '../../hooks/usePage';
 import useBackground from '../../hooks/useBackground';
 import IntroLoading from './IntroLoading';
+import useBgm from '../../hooks/useBgm';
 
 function Intro() {
 
@@ -16,6 +17,7 @@ function Intro() {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [isHideLoading, setIsHideLoading] = useState(false);
 
+  const { playBgm } = useBgm();
   const audioRef = useRef<HTMLAudioElement>(null)
   const { setBackgroundColor } = useBackground();
 
@@ -45,6 +47,7 @@ function Intro() {
     if (isHideLoading) {
       setIsLottiePlay(true);
       setIsLetterOpened(true);
+      playBgm();
     }
   }
 
