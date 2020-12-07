@@ -93,9 +93,9 @@ function ResultColor({ color, username }: ResultColorProps) {
         let nav: any = window.navigator;
         if (nav.share) {
             nav.share({
-                title: 'title',
-                text: 'description',
-                url: window.location.hostname,
+                title: '마음의 방',
+                text: 'Syeon artist',
+                url: 'https://mind-room.syeon.studio/',
             })
         }
     }
@@ -170,10 +170,12 @@ function ResultColor({ color, username }: ResultColorProps) {
                         </div>
                         <StyledDiv className="result-divider" color={result.dividerColor}></StyledDiv>
                         <div className="result-middle contact">
-                            <StyledDiv ref={emailRef} className="result-contact-email" backgroundColor={result.emailBackgroundColor} >
-                                <StyledIcon className="ri-mail-line" fontSize="1.7rem"></StyledIcon>
-                                <StyledParagraph >syeon.artist@gmail.com</StyledParagraph>
-                            </StyledDiv>
+                            <a href="mailto:syeon.artist@gmail.com">
+                                <StyledDiv ref={emailRef} className="result-contact-email" backgroundColor={result.emailBackgroundColor} >
+                                    <StyledIcon className="ri-mail-line" fontSize="1.7rem"></StyledIcon>
+                                    <StyledParagraph >syeon.artist@gmail.com</StyledParagraph>
+                                </StyledDiv>
+                            </a>
                         </div>
                         <div className="result-middle center">
                             <StyledSvg className="btn-gohome" onClick={() => goPage(0)} fill={result.replayIconColor} height="3em" xmlns="http://www.w3.org/2000/svg" version="1.1" id="레이어_1" x="0px" y="0px" viewBox="0 0 96 96" >

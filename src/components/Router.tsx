@@ -57,7 +57,7 @@ function Router() {
     useEffect(() => {
         if (bgmRef.current)
             if (isBgmPlay) {
-                bgmRef.current.volume = 0.1;
+                bgmRef.current.volume = 0.3;
                 bgmRef.current.play();
             }
             else {

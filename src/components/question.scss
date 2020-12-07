@@ -91,6 +91,32 @@
   }
 }
 
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.question-msg-click {
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  opacity: 0;
+  animation-name: blink;
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  font-size: 1rem;
+  // margin-top: 2rem;
+  text-align: center;
+}
+
 .answers-wrp {
   position: relative;
   height: 50%;

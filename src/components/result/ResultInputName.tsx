@@ -1,5 +1,6 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useEffect } from 'react';
 import resultOutlineImg from '../../assets/img/result_outline_black.png';
+import useBgm from '../../hooks/useBgm';
 
 type ResultInputNameProps = {
     goNext: () => void;
@@ -8,6 +9,12 @@ type ResultInputNameProps = {
 }
 
 function ResultInputName({ goNext, username, onChange }: ResultInputNameProps) {
+
+    const { pauseBgm } = useBgm();
+
+    useEffect(() => {
+        pauseBgm();
+    }, [])
 
     return (
         <div className="result-wrp main">

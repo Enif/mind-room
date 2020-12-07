@@ -1,11 +1,11 @@
-import imgYellow from '../assets/img/results/img_yellow.png';
-import imgOrange from '../assets/img/results/img_orange.png';
-import imgGreen from '../assets/img/results/img_green.png';
-import imgSky from '../assets/img/results/img_sky.png';
-import imgNavy from '../assets/img/results/img_navy.png';
-import imgPink from '../assets/img/results/img_pink.png';
-import imgBrown from '../assets/img/results/img_brown.png';
-import imgWhite from '../assets/img/results/img_white.png';
+import imgYellow from '../assets/img/results/img_yellow.jpg';
+import imgOrange from '../assets/img/results/img_orange.jpg';
+import imgGreen from '../assets/img/results/img_green.jpg';
+import imgSky from '../assets/img/results/img_sky.jpg';
+import imgNavy from '../assets/img/results/img_navy.jpg';
+import imgPink from '../assets/img/results/img_pink.jpg';
+import imgBrown from '../assets/img/results/img_brown.jpg';
+import imgWhite from '../assets/img/results/img_white.jpg';
 
 import gifYellow from '../assets/img/results/gif_yellow.gif';
 import gifOrange from '../assets/img/results/gif_orange.gif';
@@ -31,7 +31,7 @@ import soundGreen from '../assets/sounds/r_green.mp3';
 import soundSky from '../assets/sounds/r_sky.mp3';
 import soundNavy from '../assets/sounds/r_navy.mp3';
 import soundPink from '../assets/sounds/r_pink.mp3';
-import soundBrown from '../assets/sounds/r_pink.mp3';
+import soundBrown from '../assets/sounds/r_brown.mp3';
 import soundWhite from '../assets/sounds/r_white.mp3';
 
 export type resultDataType = {

@@ -206,7 +206,7 @@ const questionData = [
                 "score": ""
             }
         ],
-        backgroudColor: "#8E8550",
+        backgroudColor: "#85743e",
         questionColor: "#483D00",
         answerColor: "#57B6E9",
         sound: q6Sound

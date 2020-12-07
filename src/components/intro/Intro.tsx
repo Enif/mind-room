@@ -49,6 +49,9 @@ function Intro() {
       setIsLetterOpened(true);
       playBgm();
     }
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
   }
 
   // const onDataReady = (e: any) => {
@@ -103,7 +106,7 @@ function Intro() {
       </div>
       {/* <Footer /> */}
       {
-        isHideLoading && <audio autoPlay ref={audioRef} src={letterOpenSound} ></audio>
+        <audio ref={audioRef} src={letterOpenSound} ></audio>
       }
     </div>
   );

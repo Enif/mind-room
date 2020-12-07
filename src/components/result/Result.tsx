@@ -5,37 +5,26 @@ import ResultMain from './ResultMain';
 import './result.scss';
 import ResultInputName from './ResultInputName';
 import ResultColor from './ResultColor';
-import useBackground from '../../hooks/useBackground';
-// import axios, { AxiosPromise } from 'axios';
 import Axios from 'axios';
-import useBgm from '../../hooks/useBgm';
 
 const SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
 
 type answersKeys = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
 
-type ResultProps = {
-    setBackgroundColor: (backgroundColor: string) => void;
-}
-
 
 function Result() {
-    // function Result({ setBackgroundColor }: ResultProps) {
 
     const { answers } = useAnswer();
     const [resultIndex, setResultIndex] = useState(0);
     const [username, setUsername] = useState("");
     const [resultColor, setResultColor] = useState("")
-    const { pauseBgm } = useBgm();
 
 
     useEffect(() => {
         const resultScore = calculator();
-        const resultColor = findMax(resultScore)
+        const resultColor = findMax(resultScore);
         setResultColor(resultColor);
         postResult(resultColor);
-        pauseBgm();
-        // const resultColor = findMax(resultScore);    
     }, [])
 
     const postResult = function (color: string) {

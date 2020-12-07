@@ -192,6 +192,10 @@ function Question() {
                         }
                         <div className="question-qna" >
                             {makeQuestionList(data.question, qIdx, data.questionColor, data["text-aline"])}
+                            {
+                                qIdx === 0 && pageIdx === 1 &&
+                                <p className="question-msg-click">화면을 클릭하여 다음으로 넘어가세요</p>
+                            }
                             <div className="answers-wrp">
                                 {isAnswerOpened && makeAnswerList(data.answer)}
                             </div>

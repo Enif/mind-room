@@ -17,7 +17,7 @@ type SoundState = {
 }
 
 const initialState: SoundState = {
-    isSoundOn: false
+    isSoundOn: true
 }
 
 function soundReducer(state: SoundState = initialState, action: SoundAction) {
