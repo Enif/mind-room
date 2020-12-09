@@ -170,7 +170,7 @@ function ResultColor({ color, username }: ResultColorProps) {
                         </div>
                         <StyledDiv className="result-divider" color={result.dividerColor}></StyledDiv>
                         <div className="result-middle contact">
-                            <a href="mailto:syeon.artist@gmail.com">
+                            <a href="mailto:syeon.artist@gmail.com" style={{ width: "100%" }}>
                                 <StyledDiv ref={emailRef} className="result-contact-email" backgroundColor={result.emailBackgroundColor} >
                                     <StyledIcon className="ri-mail-line" fontSize="1.7rem"></StyledIcon>
                                     <StyledParagraph >syeon.artist@gmail.com</StyledParagraph>

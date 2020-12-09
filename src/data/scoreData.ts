@@ -32,7 +32,7 @@ const answersScoreData: answersScoreDataType[] = [
                     orange: 0,
                     green: 50,
                     sky: 50,
-                    navy: 50,
+                    navy: 0,
                     pink: 0,
                     brown: 30,
                     white: 0
@@ -103,7 +103,7 @@ const answersScoreData: answersScoreDataType[] = [
                     green: 0,
                     sky: 100,
                     navy: 0,
-                    pink: 100,
+                    pink: 200,
                     brown: 0,
                     white: 0
                 }
@@ -185,7 +185,7 @@ const answersScoreData: answersScoreDataType[] = [
                     orange: 50,
                     green: 100,
                     sky: 0,
-                    navy: 70,
+                    navy: 30,
                     pink: 0,
                     brown: 0,
                     white: -100
@@ -198,8 +198,8 @@ const answersScoreData: answersScoreDataType[] = [
                     orange: 70,
                     green: -70,
                     sky: -120,
-                    navy: 0,
-                    pink: 100,
+                    navy: 100,
+                    pink: 30,
                     brown: 0,
                     white: -100
                 }
@@ -256,7 +256,7 @@ const answersScoreData: answersScoreDataType[] = [
                     green: 100,
                     sky: 100,
                     navy: 100,
-                    pink: 0,
+                    pink: 70,
                     brown: 0,
                     white: -50
                 }
@@ -268,7 +268,7 @@ const answersScoreData: answersScoreDataType[] = [
                     orange: 70,
                     green: 100,
                     sky: 0,
-                    navy: 70,
+                    navy: 30,
                     pink: 0,
                     brown: 0,
                     white: -50
@@ -453,7 +453,7 @@ const answersScoreData: answersScoreDataType[] = [
                     green: 0,
                     sky: 0,
                     navy: 0,
-                    pink: 30,
+                    pink: 0,
                     brown: 0,
                     white: 50
                 }
@@ -478,7 +478,7 @@ const answersScoreData: answersScoreDataType[] = [
                     orange: 0,
                     green: 0,
                     sky: 0,
-                    navy: 100,
+                    navy: 30,
                     pink: 0,
                     brown: 0,
                     white: 30
@@ -505,7 +505,7 @@ const answersScoreData: answersScoreDataType[] = [
                     green: 0,
                     sky: 0,
                     navy: 0,
-                    pink: 50,
+                    pink: 0,
                     brown: 0,
                     white: 0
                 }
