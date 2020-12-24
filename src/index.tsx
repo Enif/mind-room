@@ -4,6 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// if (process.env.NODE_ENV === 'production') {
+if (true) {
+  console.log('production mode');
+  (window as any).dataLayer = (window as any).dataLayer || [];
+  const gtag = function (...arg: any) {
+    (window as any).dataLayer.push(arg);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-W964GTHFS5');
+}
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
