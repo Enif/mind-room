@@ -1,4 +1,4 @@
-import React, { useState, useEffect, MouseEvent } from 'react';
+import React, { useEffect, MouseEvent } from 'react';
 import usePage from '../hooks/usePage';
 import useAnswer from '../hooks/useAnswer';
 
@@ -19,7 +19,7 @@ import styled from 'styled-components';
 import './question.scss'
 import useSound from '../hooks/useSound';
 import useBackground from '../hooks/useBackground';
-// import SoundOnOff from './common/SoundOnOff';
+
 
 type answerType = {
     text: string
@@ -30,49 +30,20 @@ const StyledParagraph = styled.p<{ textAlign?: string }>`
     text-align: ${props => props.textAlign || "center"};
 `
 
-// const StyledIcon = styled.i<{
-// }>`
-//     color: ${props => props.color || "#FFF"};
-// `
 
 function Question() {
 
-    const { pageIdx, goNextPage } = usePage();
+    const { pageIdx, questionIdx, isAnswerOpened, goNextPage, goNextSentence, openAnswerOptions } = usePage();
     const { setAnswer } = useAnswer();
-    const [qIdx, setQIdx] = useState(0);
-    const [isAnswerOpened, setIsAnswerOpened] = useState(false);
     const { isSoundOn } = useSound();
     const { setBackgroundColor } = useBackground();
 
     const data = qData[pageIdx - 1];
 
     useEffect(() => {
-        // console.log('set Color')
-        // console.log(data.backgroudColor)
+        const data = qData[pageIdx - 1];
         setBackgroundColor(data.backgroudColor)
-    }, [pageIdx, data.backgroudColor, setBackgroundColor])
-
-    useEffect(() => {
-        setQIdx(0);
-        if (isAnswerOpened) {
-            setIsAnswerOpened(false);
-        }
-        // // console.log('make Interval')
-        // const qInterval = setInterval(() => {
-        //     // console.log('tick')
-        //     setQIdx(idx => idx + 1)
-        // }, 2000)
-        // return () => {
-        //     // console.log('clear Interval')
-        //     clearInterval(qInterval)
-        // }
-    }, [pageIdx, setIsAnswerOpened])
-
-    useEffect(() => {
-        if (data && (qIdx > data.question.length - 1) && !isAnswerOpened) {
-            setIsAnswerOpened(true)
-        }
-    }, [qIdx, pageIdx])
+    }, [pageIdx, setBackgroundColor])
 
 
     const makeImgClassName = (pageIdx: number, imgIdx: number, ) => {
@@ -133,41 +104,28 @@ function Question() {
         return answers.map((answer, idx) => {
             return <button className={`btn-answer`}
                 key={idx}
-                onClick={() => onClickAnswer(idx)}>{answer.text}</button>
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onClickAnswer(idx)
+                }
+                }>{answer.text}</button>
         })
     }
 
     const onClickBackground = (e: MouseEvent<HTMLDivElement>) => {
-        // e.stopPropagation();
-        setQIdx(idx => idx + 1);
+        e.stopPropagation();
+
+        if (questionIdx < data.question.length - 1) {
+            goNextSentence();
+        }
+        else {
+            openAnswerOptions();
+        }
     }
-
-    // const onClickQuestion = useCallback(
-    //     () => {
-    //         if (qIdx < data.question.length - 1) {
-    //             setQIdx(idx => idx + 1);
-    //         }
-    //         else {
-    //             setIsAnswerOpened(() => true);
-    //         }
-    //     },
-    //     [qIdx]
-    // ) 
-
-    // const onClickQuestion = () => {
-    //     if (qIdx < data.question.length - 1) {
-    //         setQIdx(idx => idx + 1);
-    //     }
-    //     else {
-    //         setIsAnswerOpened(() => true);
-    //     }
-    // }
 
     const onClickAnswer = (answer: number) => {
         setAnswer(pageIdx, answer);
-        setQIdx(0);
         goNextPage();
-        setIsAnswerOpened(false);
     }
 
     return (
@@ -177,29 +135,15 @@ function Question() {
                 <div className="question">
                     <div className="question-inner" onClick={onClickBackground}>
                         {setBackgroudImg(pageIdx)}
-                        {/* <SoundOnOff /> */}
-                        {
-                            // isSoundOn ?
-                            //     <button className="btn-sound" onClick={() => soundOff()}>
-                            //         <StyledIcon className="ri-music-2-fill" color={data.questionColor}></StyledIcon>
-                            //         {/* <i className="ri-music-2-fill"></i> */}
-                            //     </button>
-                            //     :
-                            //     <button className="btn-sound" onClick={() => soundOn()}>
-                            //         <StyledIcon className="ri-music-2-line" color={data.questionColor}></StyledIcon>
-                            //         {/* <i className="ri-music-2-line"></i> */}
-                            //     </button>
-                        }
                         <div className="question-qna" >
-                            {makeQuestionList(data.question, qIdx, data.questionColor, data["text-aline"])}
+                            {makeQuestionList(data.question, questionIdx, data.questionColor, data["text-aline"])}
                             {
-                                qIdx === 0 && pageIdx === 1 &&
+                                questionIdx === 0 && pageIdx === 1 && !isAnswerOpened &&
                                 <p className="question-msg-click">화면을 클릭하여 다음으로 넘어가세요</p>
                             }
                             <div className="answers-wrp">
                                 {isAnswerOpened && makeAnswerList(data.answer)}
                             </div>
-
                         </div>
                         {
                             data.sound &&
