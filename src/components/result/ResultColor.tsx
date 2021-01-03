@@ -9,6 +9,8 @@ import useSound from '../../hooks/useSound';
 import useBackground from '../../hooks/useBackground';
 import ClipboardJS from 'clipboard';
 import SoundOnOff from '../common/SoundOnOff';
+import useLanguage from '../../hooks/useLanguage';
+import { async } from 'q';
 
 type ResultColorProps = {
     color: string;
@@ -33,7 +35,7 @@ const StyledParagraph = styled.p<{
     color: ${props => props.color || "#FFFFFF"};
     margin: ${props => props.margin || "0"};
     font-size: ${props => props.fontSize};
-    line-height: ${props => props.lineHeight || "1"};
+    line-height: ${props => props.lineHeight};
     text-align: ${props => props.textAlign || 'center'};
 `
 
@@ -71,6 +73,7 @@ function ResultColor({ color, username }: ResultColorProps) {
     const { goPage } = usePage();
     const { isSoundOn, soundOn, soundOff } = useSound();
     const { setBackgroundColor } = useBackground();
+    const { isEnglish } = useLanguage();
     const emailRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -89,14 +92,34 @@ function ResultColor({ color, username }: ResultColorProps) {
         }
     }, [setBackgroundColor, result])
 
-    const onClickShare = function (e: MouseEvent) {
+    const onClickShare = async function (e: MouseEvent) {
         let nav: any = window.navigator;
-        if (nav.share) {
-            nav.share({
-                title: '마음의 방',
-                text: 'Syeon artist',
-                url: 'https://mind-room.syeon.studio/',
-            })
+
+        if (result) {
+            try {
+                // const data = await fetch(result.img);
+                // const imgBlob = await data.blob();
+                // const fileData = {
+                //     files: [new File([imgBlob], 'mindroom.jpeg')]
+                // }
+                // if (nav.canShare && nav.canShare(fileData)) {
+                // }
+                if (nav.share) {
+                    nav.share(
+                        {
+                            title: isEnglish ? 'Welcome to the Mind-room' : '마음의 방으로 초대합니다',
+                            text: 'Syeon artist',
+                            url: 'https://mind-room.syeon.studio/',
+                            // files: [new File([imgBlob], 'mindroom.jpeg')]
+                        })
+                }
+                else {
+                    alert(isEnglish ? "Only mobile device can share" : "공유하기 기능은 모바일에서만 사용하실 수 있습니다.");
+                }
+            }
+            catch (err) {
+                console.error(err);
+            }
         }
     }
 
@@ -130,20 +153,19 @@ function ResultColor({ color, username }: ResultColorProps) {
                                     <img src={result.gifImg} alt={"resultImg"} />
                                 </picture>
                                 <StyledParagraph color={result.titleFontColor} margin="1rem 0rem 1.5rem 0" fontSize="2rem">{result.title}</StyledParagraph>
-                                <StyledParagraph color={result.questionFontColor} margin="1rem" fontSize="1.5rem">{result.question}</StyledParagraph>
-                                <StyledParagraph color={result.textFontColor} margin="1rem" fontSize="1.3rem" lineHeight="1.1" textAlign="justify">{result.text}</StyledParagraph>
-                                <StyledParagraph color={result.questionFontColor} margin="1rem" fontSize="1.5rem">- Interior Tips -</StyledParagraph>
-                                <StyledParagraph color={result.textFontColor} margin="1rem" fontSize="1.3rem" lineHeight="1.1" textAlign="justify">{result.tipstext}</StyledParagraph>
+                                <StyledParagraph className="result-inner-question" color={result.questionFontColor} margin="1rem">{isEnglish ? result.question_en : result.question}</StyledParagraph>
+                                <StyledParagraph className="result-inner-text" color={result.textFontColor} margin="1rem" textAlign="justify">{isEnglish ? result.text_en : result.text}</StyledParagraph>
+                                <StyledParagraph className="result-inner-question" color={result.questionFontColor} margin="1rem">- Interior Tips -</StyledParagraph>
+                                <StyledParagraph className="result-inner-text" color={result.textFontColor} margin="1rem" textAlign="justify">{isEnglish ? result.tipstext_en : result.tipstext}</StyledParagraph>
                             </div>
                         </div>
                         <div className="result-middle">
                             {/* <i className="ri-book-mark-line"></i> */}
-                            <StyledIcon className="ri-book-mark-line" color={result.buttonColor} fontSize="2.5rem" onClick={() => setIsOpenRef(true)}></StyledIcon>
+                            <StyledIcon className="ri-question-fill" color={result.buttonColor} fontSize="2.5rem" onClick={() => setIsOpenRef(true)}></StyledIcon>
                             <a href={result.img} target="_blank" download>
-                                <StyledButton className="result-btn-save" color={result.buttonFontColor} backgroundColor={result.buttonColor}>이미지 저장</StyledButton>
+                                <StyledButton className="result-btn-save" color={result.buttonFontColor} backgroundColor={result.buttonColor}>{isEnglish ? "Download" : "이미지 저장"}</StyledButton>
                             </a>
                             <StyledIcon className="ri-share-fill" color={result.buttonColor} fontSize="2.5rem" onClick={onClickShare}></StyledIcon>
-
                         </div>
                         <StyledDiv className="result-divider" color={result.dividerColor}></StyledDiv>
                         <div className="result-middle contact">
@@ -188,9 +210,7 @@ function ResultColor({ color, username }: ResultColorProps) {
                             <ResultReference close={() => { setIsOpenRef(false) }} />
                         }
                         {/* <Footer /> */}
-
                         <audio muted={!isSoundOn} src={result.sound} autoPlay loop />
-
                     </StyledDiv>
                     :
                     <div>ERROR</div>

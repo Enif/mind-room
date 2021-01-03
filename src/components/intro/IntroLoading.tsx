@@ -1,11 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import SoundOnOff from '../common/SoundOnOff';
 import outlineImg from '../../assets/img/result_outline_white.png';
+import useLanguage from '../../hooks/useLanguage';
 
-function IntroLoading({ isImageLoaded }: { isImageLoaded: boolean }) {
+type IntroLoadingProps = {
+    isImageLoaded: boolean,
+    hide: () => void
+}
+
+function IntroLoading({ isImageLoaded, hide }: IntroLoadingProps) {
 
     const [progress, setProgress] = useState(0);
+    const [isSelectLanguage, setIsSelectLanguage] = useState(false);
     const svgPath = useRef<SVGPathElement>(null)
+    const { setLanguage } = useLanguage();
 
     useEffect(() => {
         const prInterval = setInterval(() => {
@@ -36,17 +44,30 @@ function IntroLoading({ isImageLoaded }: { isImageLoaded: boolean }) {
         isImageLoaded && setProgress(100);
     }, [isImageLoaded])
 
+    const onClickLanguage = (isEnglish: boolean) => {
+        setLanguage(isEnglish);
+        setIsSelectLanguage(true);
+        hide();
+    }
+
     return (
-        <div className={`intro-loading-wrp${isImageLoaded ? " hide" : ""}`} >
+        <div className={`intro-loading-wrp${isSelectLanguage ? " hide" : ""}`} >
             <img className="result-outline main" src={outlineImg} />
             <SoundOnOff className="intro-btn-sound" />
-            <p className="intro-sound-text">사운드가 포함된 테스트입니다.<br />소리를 켜주세요!</p>
+            <p className="intro-sound-text">소리를 꼭 켜주세요!<br />Please turn the sound on!</p>
             <svg id="svg" className="intro-loading-svg" height="150" width="100">
                 <path ref={svgPath} id="svgPath" d="M 50 0 L 7 28 L 7 73 L 7 71 L 50 100 L 92 71 L 92 28 Z" stroke="white"
                     strokeWidth="3" fill="none" />
                 <text fontSize="1.2rem" x="35" y="53" fill="white">{progress}%</text>
             </svg>
-            <p className="intro-notice">English version will be updated soon</p>
+            {
+
+                <div className={`intro-btn-language-wrp${isImageLoaded && progress === 100 ? "" : " hide"}`}>
+                    <button className="intro-btn-language" onClick={() => onClickLanguage(false)}>한국어</button>
+                    <button className="intro-btn-language" onClick={() => onClickLanguage(true)}>English</button>
+                </div>
+            }
+            {/* <p className="intro-notice">English version will be updated soon</p> */}
 
         </div>
     );

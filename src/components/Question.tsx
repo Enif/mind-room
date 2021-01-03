@@ -19,10 +19,11 @@ import styled from 'styled-components';
 import './question.scss'
 import useSound from '../hooks/useSound';
 import useBackground from '../hooks/useBackground';
-
+import useLanguage from '../hooks/useLanguage';
 
 type answerType = {
-    text: string
+    text: string,
+    text_en?: string
 }
 
 const StyledParagraph = styled.p<{ textAlign?: string }>`
@@ -37,6 +38,7 @@ function Question() {
     const { setAnswer } = useAnswer();
     const { isSoundOn } = useSound();
     const { setBackgroundColor } = useBackground();
+    const { isEnglish } = useLanguage();
 
     const data = qData[pageIdx - 1];
 
@@ -82,7 +84,9 @@ function Question() {
         return (
             <div className="questions-wrp">
                 <StyledParagraph color={color} textAlign={textAlign} key={idx}>
-                    {questions[idx] && lineBreaker(questions[idx])}
+                    {
+                        questions[idx] && lineBreaker(questions[idx])
+                    }
                 </StyledParagraph>
             </div>
         )
@@ -108,7 +112,7 @@ function Question() {
                     e.stopPropagation();
                     onClickAnswer(idx)
                 }
-                }>{answer.text}</button>
+                }>{isEnglish ? <span className="text-english">{answer.text_en}</span> : answer.text}</button>
         })
     }
 
@@ -136,10 +140,19 @@ function Question() {
                     <div className="question-inner" onClick={onClickBackground}>
                         {setBackgroudImg(pageIdx)}
                         <div className="question-qna" >
-                            {makeQuestionList(data.question, questionIdx, data.questionColor, data["text-aline"])}
+                            {
+                                makeQuestionList(
+                                    isEnglish ? data.question_en : data.question,
+                                    questionIdx, data.questionColor, data["text-aline"])
+                            }
                             {
                                 questionIdx === 0 && pageIdx === 1 && !isAnswerOpened &&
-                                <p className="question-msg-click">화면을 클릭하여 다음으로 넘어가세요</p>
+                                <p className="question-msg-click">
+                                    {isEnglish ?
+                                        "Click the screen to move next." :
+                                        "화면을 클릭하여 다음으로 넘어가세요"
+                                    }
+                                </p>
                             }
                             <div className="answers-wrp">
                                 {isAnswerOpened && makeAnswerList(data.answer)}

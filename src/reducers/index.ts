@@ -4,13 +4,15 @@ import answerReducer from './answerReducer';
 import soundReducer from './soundReducer';
 import backgroundReducer from './backgroundReducer';
 import bgmReducer from './bgmReducer';
+import languageReducer from './languageReducer';
 
 const rootReducer = combineReducers({
     pageReducer,
     answerReducer,
     soundReducer,
     backgroundReducer,
-    bgmReducer
+    bgmReducer,
+    languageReducer
 });
 
 export default rootReducer;

@@ -12,27 +12,30 @@ const questionData = [
         question: [
             "\n오늘은 기다리던 여행을 가는 날입니다!\n​어디로 떠날 예정인가요?"
         ],
+        question_en: [
+            "\nToday is the day you go on a trip!\nWhere would you like to go?"
+        ],
         "text-aline": "center",
         answer: [
             {
                 "text": "사람이 적은 평화로운 자연",
-                "score": ""
+                "text_en": "A peaceful space in nature with a few people"
             },
             {
                 "text": "다양한 문화생활이 가능한 도시",
-                "score": ""
+                "text_en": "A city to enjoy various cultural activities"
             },
             {
                 "text": "활동적인 액티비티를 즐길 수 있는 곳",
-                "score": ""
+                "text_en": "A place to enjoy outdoor adventures"
             },
             {
                 "text": "잘 알려지지 않은 소도시 탐험",
-                "score": ""
+                "text_en": "A less popular small city"
             },
             {
                 "text": "새로운 사람들을 만날 수 있는 행사가 열리는 곳",
-                "score": ""
+                "text_en": "A festival to meet new people"
             }
         ],
         "backgroudImg": "../assets/img/q1.jpg",
@@ -46,27 +49,31 @@ const questionData = [
             "\n여행지에 도착해서 잠시 산책을 하는 중,\n갑자기 비가 쏟아집니다.",
             "\n\n이때 가장 먼저 드는 생각은 무엇인가요?"
         ],
+        question_en: [
+            "\nWhen you're walking at the destination,\nsuddenly it rains.",
+            "\n\nWhat comes to your mind first?"
+        ],
         "text-aline": "center",
         answer: [
             {
                 "text": "아, 짜증나(험한 말). 갑자기 이게 뭐야!!!",
-                "score": ""
+                "text_en": "What the hell!"
             },
             {
                 "text": "일단 근처 카페에서 비가 그치길 기다려보자",
-                "score": ""
+                "text_en": "Let’s go to a cafe and wait for the rain to pass."
             },
             {
                 "text": "비 오는 것도 운치있고 좋네~",
-                "score": ""
+                "text_en": "It’s kind of romantic."
             },
             {
                 "text": "우산 사서 빨리 숙소로 가야지",
-                "score": ""
+                "text_en": "Let’s get an umbrella and go back to the hotel."
             },
             {
                 "text": "옷이랑 신발 더러워지면 어떡하지..",
-                "score": ""
+                "text_en": "Oh no, It’s going to ruin my shoes and clothes."
             }
         ],
         backgroudColor: "#023A7A",
@@ -81,27 +88,32 @@ const questionData = [
             "\n숙소로 돌아가는 길,\n저녁 노을을 보며 당신은 생각에 잠깁니다.",
             "\n\n요즘 당신의 가장 큰 고민은 무엇인가요?"
         ],
+        question_en: [
+            "\n\nLuckily, the rain stopped shortly!",
+            "You are going back to the hotel.\nand deep into thought\nby watching the sunset.",
+            "\n\nWhat’s your biggest worry nowadays?"
+        ],
         "text-aline": "center",
         answer: [
             {
                 "text": "나쁜 일이 생길 것 같아 걱정되고 두렵다.",
-                "score": ""
+                "text_en": "I'm concerned that something bad will happen."
             },
             {
                 "text": "미래가 보이지 않아 불안하다.",
-                "score": ""
+                "text_en": "I’m worried because of my unforeseeable future."
             },
             {
                 "text": "나의 존재가치를 잘 모르겠고 우울하다.",
-                "score": ""
+                "text_en": "I don’t know why I exist and I’m depressed. "
             },
             {
                 "text": "사람들과의 관계로 인해 스트레스를 받는다.",
-                "score": ""
+                "text_en": "I’m stressed out by the human relationship."
             },
             {
                 "text": "딱히 큰 걱정거리는 없다.",
-                "score": ""
+                "text_en": "I have no worries."
             }
         ],
         backgroudColor: "#1C243A",
@@ -114,27 +126,30 @@ const questionData = [
         question: [
             "\n\n지금 당신에게 가장 필요한 것은 무엇인가요?"
         ],
+        question_en: [
+            "\n\nWhat do you need the most right now?"
+        ],
         "text-aline": "center",
         answer: [
             {
                 "text": "나를 위로해주고 힘이 되어주는 사람",
-                "score": ""
+                "text_en": "Someone who comforts me and gives me energy"
             },
             {
                 "text": "아무 생각없이 쉴 수 있는 여유",
-                "score": ""
+                "text_en": "Complete relaxation without any worries."
             },
             {
                 "text": "미래를 보여주는 마법 구슬",
-                "score": ""
+                "text_en": "Fortune-telling Magical Crystal Ball"
             },
             {
                 "text": "명확한 목표와 열정",
-                "score": ""
+                "text_en": "Clear goal and passion"
             },
             {
                 "text": "특별히 필요한 건 없다",
-                "score": ""
+                "text_en": "Don’t need anything special"
             }
         ],
         backgroudColor: "#15182B",
@@ -148,27 +163,31 @@ const questionData = [
             "피곤했는지 숙소에\n도착하자마자 잠든\n당신.",
             "\n어떤 꿈을\n꾸고 있나요?"
         ],
+        question_en: [
+            "You must be tired\nso you fall asleep\nas soon as you come back.",
+            "\nWhat kind of dream\nare you dreaming?"
+        ],
         "text-aline": "left",
         answer: [
             {
                 "text": "좁은 방 안에 사슬로 묶여있는 꿈",
-                "score": ""
+                "text_en": "I’m chained in a small room"
             },
             {
                 "text": "끝이 없는 복도를 헤매는 꿈",
-                "score": ""
+                "text_en": "I’m wandering in an endless hallway"
             },
             {
                 "text": "무언가를 하려는데 계속 이루지 못하는 꿈",
-                "score": ""
+                "text_en": "I keep doing something but never finish it"
             },
             {
                 "text": "비행기 또는 엘리베이터가 추락하는 꿈",
-                "score": ""
+                "text_en": "The plane or elevator I’m on crashes"
             },
             {
                 "text": "좋은 꿈을 꾸거나 아예 꿈을 꾸지 않는다",
-                "score": ""
+                "text_en": "A good dream or no dream"
             }
         ],
         backgroudColor: "#0E0843",
@@ -183,27 +202,32 @@ const questionData = [
             "그/그녀가\n당신에게 오늘\n함께 다니자고 제안하네요.",
             "\n이때 당신은\n어떻게 할까요?"
         ],
+        question_en: [
+            "Next morning,\nyou meet a solo traveller\nduring breakfast.",
+            "\nHe/she asks you\nto travel together today.",
+            "\n\nWhat is your response?"
+        ],
         "text-aline": "left",
         answer: [
             {
                 "text": "거절하기 곤란하니 알겠다고 한다.",
-                "score": ""
+                "text_en": "I say OK since I have difficulties saying no."
             },
             {
                 "text": "모르는 사람은 부담스럽다. 미안하지만 거절한다.",
-                "score": ""
+                "text_en": "A stranger is uncomfortable. Sorry but no thanks."
             },
             {
                 "text": "나만의 시간을 뺏기는 것 같고 귀찮으니 거절한다.",
-                "score": ""
+                "text_en": "A stranger intrudes on my alone time, so No!"
             },
             {
                 "text": "위험한 사람일까봐 걱정돼 조심스레 거절한다.",
-                "score": ""
+                "text_en": "Stranger danger. I say No cautiously."
             },
             {
                 "text": "새로운 사람과 함께하는 것은 늘 즐겁다. 당연히 OK!",
-                "score": ""
+                "text_en": "I love meeting new people. Of course, ok!"
             }
         ],
         backgroudColor: "#85743e",
@@ -218,27 +242,32 @@ const questionData = [
             "\n당신은 이번 여행에서\n찍은 사진들을 보고 있습니다.",
             "\n가장 눈길이 가는 사진에서\n당신은 어떤 모습인가요?"
         ],
+        question_en: [
+            "\nAlready it is\nthe last day of the trip.",
+            "You are on a train\nride back home and looking\nat pictures from the trip.",
+            "\nWhich picture catches\nyour eye the most?"
+        ],
         "text-aline": "right",
         answer: [
             {
                 "text": "카메라를 향해 활짝 웃고 있다.",
-                "score": ""
+                "text_en": "I’m smiling at the camera."
             },
             {
                 "text": "다양한 사람들과 함께 있다.",
-                "score": ""
+                "text_en": "I’m with other people."
             },
             {
                 "text": "작지만 배경과 어우러져 있다.",
-                "score": ""
+                "text_en": "I’m very small but look nice with the background."
             },
             {
                 "text": "눈을 감고 바람을 느끼고 있다.",
-                "score": ""
+                "text_en": "I close my eyes and feel the breeze."
             },
             {
                 "text": "사진에 내가 나오지 않는다.",
-                "score": ""
+                "text_en": "I’m not in the picture."
             }
         ],
         backgroudColor: "#B79873",
@@ -253,27 +282,32 @@ const questionData = [
             "\n이제 정말로\n여행이 끝나가네요.",
             "\n이번 여행에서 가장\n만족스러운 점은 무엇이었나요?"
         ],
+        question_en: [
+            "As you look through\nthe pictures, it is\nalready dark outside.",
+            "\nThis trip really is\ncoming to an end.",
+            "\nWhat was the best\npart of this trip?"
+        ],
         "text-aline": "right",
         answer: [
             {
                 "text": "처음으로 혼자만의 여행에 도전한 것",
-                "score": ""
+                "text_en": "For the first time, I travelled alone."
             },
             {
                 "text": "다양한 사람들을 만난 것",
-                "score": ""
+                "text_en": "I met a lot of new people."
             },
             {
                 "text": "나만의 시간을 통해 나를 다시 돌아볼 수 있었던 것",
-                "score": ""
+                "text_en": "I reflected on myself by having my own time"
             },
             {
                 "text": "SNS에 올릴 인생샷을 많이 건진 것",
-                "score": ""
+                "text_en": "I took many pictures to upload on social media."
             },
             {
                 "text": "내가 짠 계획에 맞춰 차질없이 여행을 다닌 것",
-                "score": ""
+                "text_en": "How the trip was as perfect as I planned."
             }
         ],
         backgroudColor: "#946667",
@@ -286,27 +320,30 @@ const questionData = [
         question: [
             "\n여행이 끝나고 집에 돌아온 당신.\n가장 먼저 무엇을 하나요?"
         ],
+        question_en: [
+            "\nYou came back from the trip.\nWhat do you do first?"
+        ],
         "text-aline": "center",
         answer: [
             {
                 "text": "캐리어의 모든 물건을 정리하고 샤워한다.",
-                "score": ""
+                "text_en": "I unpack and arrange everything and shower."
             },
             {
                 "text": "일단 피곤하니 잔다.",
-                "score": ""
+                "text_en": "I'm feeling tired, just sleep."
             },
             {
                 "text": "여행에서 있었던 일을 가족/친구에게 이야기한다.",
-                "score": ""
+                "text_en": "I tell my friends/family about the trip episode."
             },
             {
                 "text": "여행 중 찍은 사진들을 정리해서 SNS에 올린다.",
-                "score": ""
+                "text_en": "I upload pictures from the trip on social media."
             },
             {
                 "text": "여행에서의 기억을 일기로 남긴다.",
-                "score": ""
+                "text_en": "I write in my journal about the trip."
             }
         ],
         backgroudColor: "#A1896B",

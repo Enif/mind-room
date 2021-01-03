@@ -37,7 +37,6 @@
   flex-direction: column;
   //   opacity: 0;
   transition: all 1;
-
   &.hidden {
     opacity: 0;
     // display: none;
@@ -102,6 +101,33 @@
   border-radius: 1.5rem;
   font-size: 1.5rem;
   padding-bottom: 0.4rem;
+}
+
+.intro-btn-language-wrp {
+  display: flex;
+  transition: all 0.7s;
+  &.hide {
+    opacity: 0;
+  }
+}
+
+.intro-btn-language {
+  margin: 1rem 0.7rem;
+  height: 3rem;
+  width: 7rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  padding-bottom: 0.4rem;
+  z-index: 1;
+  outline: none;
+  font-weight: bold;
+  &:hover {
+    background-color: #18495b;
+    color: #e3e3e3;
+  }
 }
 
 .intro-loading-wrp {
