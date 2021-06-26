@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import SoundOnOff from '../common/SoundOnOff';
 import outlineImg from '../../assets/img/result_outline_white.png';
 import useLanguage from '../../hooks/useLanguage';
+import tumblbugImgKor from '../../assets/img/tumblbug_kor.png';
 
 type IntroLoadingProps = {
     isImageLoaded: boolean,
@@ -67,6 +68,11 @@ function IntroLoading({ isImageLoaded, hide }: IntroLoadingProps) {
                     <button className="intro-btn-language" onClick={() => onClickLanguage(true)}>English</button>
                 </div>
             }
+            <div className="intro-tumblbug-wrapper">
+                <a href="https://www.tumblbug.com/mind-room/" target="_blank" rel="noopener noreferrer">
+                    <img src={tumblbugImgKor} />
+                </a>
+            </div>
             {/* <p className="intro-notice">English version will be updated soon</p> */}
 
         </div>

@@ -10,7 +10,8 @@ import useBackground from '../../hooks/useBackground';
 import ClipboardJS from 'clipboard';
 import SoundOnOff from '../common/SoundOnOff';
 import useLanguage from '../../hooks/useLanguage';
-import { async } from 'q';
+import tumblbugImgKor from '../../assets/img/tumblbug_kor.png';
+import tumblbugImgEn from '../../assets/img/tumblbug_en.png';
 
 type ResultColorProps = {
     color: string;
@@ -168,6 +169,11 @@ function ResultColor({ color, username }: ResultColorProps) {
                             <StyledIcon className="ri-share-fill" color={result.buttonColor} fontSize="2.5rem" onClick={onClickShare}></StyledIcon>
                         </div>
                         <StyledDiv className="result-divider" color={result.dividerColor}></StyledDiv>
+                        <div className="result-tumblbug-wrapper">
+                            <a href="https://www.tumblbug.com/mind-room/" target="_blank" rel="noopener noreferrer">
+                                <img src={isEnglish ? tumblbugImgEn : tumblbugImgKor} />
+                            </a>
+                        </div>
                         <div className="result-middle contact">
                             <StyledParagraph color={result.contactFontColor} >Syeon's artworks &gt;&gt;</StyledParagraph>
                             <div className="result-icons-right">

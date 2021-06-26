@@ -148,6 +148,7 @@
     // display: none;
   }
   .intro-loading-svg {
+    margin-top: 5rem;
     transition: all 1s;
   }
 }
@@ -189,4 +190,9 @@
   .loading-svg {
     transition: all 1s;
   }
+}
+
+.intro-tumblbug-wrapper {
+  z-index: 1;
+  width: 15.7rem;
 }
