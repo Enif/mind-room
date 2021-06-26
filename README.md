@@ -4,13 +4,13 @@ Mind room Project
 
 
 # 1. About the Project
------------------------------
+
 ‘Mind-Room’ project is an artwork created By artist [Syeon](https://www.instagram.com/syeon.artist/) and is in the form of a psychological test programmed by [Enif]("https://github.com/KYJ-Enif)
 
 
 
 # 2. Development
------------------------------
+
 ## Stacks
 * [React](https://reactjs.org/)
 * [Create React App](https://github.com/facebook/create-react-app)
