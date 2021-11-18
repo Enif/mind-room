@@ -185,7 +185,7 @@ function ResultColor({ color, username }: ResultColorProps) {
                         <div className="result-middle contact">
                             <StyledParagraph color={result.contactFontColor} >Enif's Github &gt;&gt;</StyledParagraph>
                             <div className="result-icons-right">
-                                <a href="https://github.com/KYJ-Enif" target="_blank" rel="noopener noreferrer">
+                                <a href="https://github.com/Enif" target="_blank" rel="noopener noreferrer">
                                     <StyledIcon color={result.contactFontColor} fontSize="2rem" className="ri-github-fill"></StyledIcon>
                                 </a>
                             </div>
