@@ -100,38 +100,33 @@ function Intro() {
           isEnglish
             ?
             <p className="text-english">
+              Welcome to the Mind-room<br />
+              <br />
               Hello, I am an artist, Syeon.<br />
-              I am working on ways to empathize with<br />
-              people’s emotional difficulties<br />
-              and help them through art.<br />
               <br />
               This test analyzes your current psychological<br />
-              status and shows you a room that could<br /> 
-              comfort you based on colour psychology.<br />
+              status and shows you a healing room<br />
+              based on color psychology.<br />
               <br />
-              Take your time to explore this test<br />
-              and feel free to make the space you like.<br />
-              <br />
-              I look forward to your participation.<br />
+              I hope 'Mind-room' could be a consolation to your mind.<br />
               <br />
               Thank you.<br />
               Syeon
             </p>
             :
             <p>안녕하세요, 아티스트 <span className="smaller">Syeon</span>입니다.<br />
-              저는 예술을 통해 사람들의 정서적 아픔에 공감하고,<br />
-              이를 치유할 수 있는 방법을 연구하고 있습니다.<br />
               <br />
-              이 테스트는 당신의 현재 심리를 알아보고,<br />
-              색채심리학을 기반으로<br />
-              당신에게 위안이 될 수 있는 방을 보여드립니다.<br />
-              이를 활용하여 당신만의 공간을 꾸며보세요.<br />
+              이 테스트는 당신의 현재 심리를 분석하고,<br />
+              색채심리학을 기반으로 구성된<br />
+              정서적 안식처를 보여드립니다.<br />
+              <br />
+              '마음의 방'이 당신 마음에 위로가 되길 바랍니다.
               <br />
               많은 참여 부탁드립니다.<br />
               <br />
               감사합니다.<br />
               Syeon
-        </p>
+            </p>
         }
         <button className="intro-btn-start" onClick={() => goNextPage()}>{isEnglish ? "Start" : "시작하기"}</button>
       </div>
