@@ -9,9 +9,9 @@ import Footer from './Footer';
 import bgm from '../assets/sounds/bgm.mp3';
 import useSound from '../hooks/useSound';
 import useBgm from '../hooks/useBgm';
-import Axios from 'axios';
+// import Axios from 'axios';
 
-const SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
+// const SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
 
 const StyledDiv = styled.div<{
     backgroundColor?: string
@@ -27,19 +27,19 @@ function Router() {
     const { isBgmPlay } = useBgm();
     const bgmRef = useRef<HTMLAudioElement>(null);
 
-    useEffect(() => {
-        access();
-    }, [])
+    // useEffect(() => {
+    //     access();
+    // }, [])
 
-    const access = function () {
-        Axios.get(`${SERVER_URL}/access`)
-            .then(() => {
-                console.log('access')
-            })
-            .catch((err) => {
-                console.error(err)
-            })
-    }
+    // const access = function () {
+    //     Axios.get(`${SERVER_URL}/access`)
+    //         .then(() => {
+    //             console.log('access')
+    //         })
+    //         .catch((err) => {
+    //             console.error(err)
+    //         })
+    // }
 
     const makePage = (idx: number) => {
         if (!idx) {

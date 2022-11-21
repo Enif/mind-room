@@ -24,6 +24,7 @@ function Intro() {
   const { setBackgroundColor } = useBackground();
 
   useEffect(() => {
+    console.log('intro')
     setBackgroundColor("#95948a");
     setTimeout(() => {
       setIsImageLoaded(true)
@@ -39,6 +40,7 @@ function Intro() {
 
 
   const onAnimationEnd = () => {
+    console.log('hello')
     setIsMsgOn(true)
   }
 
@@ -47,8 +49,8 @@ function Intro() {
     //   audioRef.current.play();
     // }
     if (isHideLoading && !isMsgOn) {
-      setIsLottiePlay(true);
-      setIsLetterOpened(true);
+      // setIsLottiePlay(true);
+      // setIsLetterOpened(true);
       playBgm();
       if (audioRef.current) {
         audioRef.current.play();
@@ -73,26 +75,19 @@ function Intro() {
 
   return (
     <div className="intro-wrp" onClick={onClickLetter}>
-      {
+      <IntroLoading isImageLoaded={false} hide={hideLoading} />
+      {/* {
         !isHideLoading &&
-        <IntroLoading isImageLoaded={isImageLoaded} hide={hideLoading} />
-      }
-      <Lottie
+      } */}
+      {/* <Lottie
         className="lottie-wrp"
         // onDataReady={onDataReady}
         onLoadedImages={onLoadedImages}
         autoplay={isLottiePlay}
         animationData={data}
         loop={false}
-        onComplete={onAnimationEnd} />
+        onComplete={onAnimationEnd} /> */}
       <div className={`intro-msg${isLetterOpened ? " hidden" : ""}`}>
-        {isHideLoading &&
-          <>
-            <p>{isEnglish ? "New message!" : "편지가 도착했습니다!"}</p>
-            <p className="intro-msg-click">{
-              isEnglish ? "Click the envelope" : "봉투를 클릭하세요"}
-            </p>
-          </>}
       </div>
       <div className={`intro-msg${isMsgOn ? "" : " hidden"}`}>
         <h5>{isEnglish ? "Welcome to the Mind-room" : "마음의 방으로 초대합니다"}</h5>

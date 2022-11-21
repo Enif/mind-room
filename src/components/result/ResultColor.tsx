@@ -155,17 +155,17 @@ function ResultColor({ color, username }: ResultColorProps) {
                                 <StyledParagraph color={result.titleFontColor} margin="1rem 0rem 1.5rem 0" fontSize="2rem">{result.title}</StyledParagraph>
                                 <StyledParagraph className="result-inner-question" color={result.questionFontColor} margin="1rem">{isEnglish ? result.question_en : result.question}</StyledParagraph>
                                 <StyledParagraph className="result-inner-text" color={result.textFontColor} margin="1rem" textAlign="justify">{isEnglish ? result.text_en : result.text}</StyledParagraph>
-                                <StyledParagraph className="result-inner-question" color={result.questionFontColor} margin="1rem">- Interior Tips -</StyledParagraph>
-                                <StyledParagraph className="result-inner-text" color={result.textFontColor} margin="1rem" textAlign="justify">{isEnglish ? result.tipstext_en : result.tipstext}</StyledParagraph>
+                                {/* <StyledParagraph className="result-inner-question" color={result.questionFontColor} margin="1rem">- Interior Tips -</StyledParagraph>
+                                <StyledParagraph className="result-inner-text" color={result.textFontColor} margin="1rem" textAlign="justify">{isEnglish ? result.tipstext_en : result.tipstext}</StyledParagraph> */}
                             </div>
                         </div>
-                        <div className="result-middle">
+                        <div className="result-middle center">
                             {/* <i className="ri-book-mark-line"></i> */}
-                            <StyledIcon className="ri-question-fill" color={result.buttonColor} fontSize="2.5rem" onClick={() => setIsOpenRef(true)}></StyledIcon>
+                            {/* <StyledIcon className="ri-question-fill" color={result.buttonColor} fontSize="2.5rem" onClick={() => setIsOpenRef(true)}></StyledIcon> */}
                             <a href={result.img} target="_blank" download>
                                 <StyledButton className="result-btn-save" color={result.buttonFontColor} backgroundColor={result.buttonColor}>{isEnglish ? "Download" : "이미지 저장"}</StyledButton>
                             </a>
-                            <StyledIcon className="ri-share-fill" color={result.buttonColor} fontSize="2.5rem" onClick={onClickShare}></StyledIcon>
+                            {/* <StyledIcon style={{vi}} className="ri-share-fill" color={result.buttonColor} fontSize="2.5rem" onClick={onClickShare}></StyledIcon> */}
                         </div>
                         <StyledDiv className="result-divider" color={result.dividerColor}></StyledDiv>
                         <div className="result-middle contact">
@@ -182,14 +182,14 @@ function ResultColor({ color, username }: ResultColorProps) {
                                 </a>
                             </div>
                         </div>
-                        <div className="result-middle contact">
+                        {/* <div className="result-middle contact">
                             <StyledParagraph color={result.contactFontColor} >Enif's Github &gt;&gt;</StyledParagraph>
                             <div className="result-icons-right">
                                 <a href="https://github.com/Enif" target="_blank" rel="noopener noreferrer">
                                     <StyledIcon color={result.contactFontColor} fontSize="2rem" className="ri-github-fill"></StyledIcon>
                                 </a>
                             </div>
-                        </div>
+                        </div> */}
                         <StyledDiv className="result-divider" color={result.dividerColor}></StyledDiv>
                         <div className="result-middle contact">
                             <a href="mailto:syeon.artist@gmail.com" style={{ width: "100%" }}>

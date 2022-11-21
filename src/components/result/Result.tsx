@@ -1,13 +1,13 @@
 import React, { useState, ChangeEvent, useEffect } from 'react';
 import useAnswer from '../../hooks/useAnswer';
 import answersScoreData, { scoreDataType, scoreDataKeys } from '../../data/scoreData';
-import ResultMain from './ResultMain';
+// import ResultMain from './ResultMain';
 import './result.scss';
-import ResultInputName from './ResultInputName';
+// import ResultInputName from './ResultInputName';
 import ResultColor from './ResultColor';
-import Axios from 'axios';
+// import Axios from 'axios';
 
-const SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
+// const SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
 
 type answersKeys = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
 
@@ -24,18 +24,18 @@ function Result() {
         const resultScore = calculator();
         const resultColor = findMax(resultScore);
         setResultColor(resultColor);
-        postResult(resultColor);
+        // postResult(resultColor);
     }, [])
 
-    const postResult = function (color: string) {
-        Axios.post(`${SERVER_URL}/result`, { color: color })
-            .then(() => {
-                console.log('result is posted')
-            })
-            .catch((err) => {
-                console.error(err)
-            })
-    }
+    // const postResult = function (color: string) {
+    //     Axios.post(`${SERVER_URL}/result`, { color: color })
+    //         .then(() => {
+    //             console.log('result is posted')
+    //         })
+    //         .catch((err) => {
+    //             console.error(err)
+    //         })
+    // }
 
     const calculator = function () {
         const resultScore: scoreDataType = {
@@ -106,17 +106,8 @@ function Result() {
     }
 
     return (
-
         <>
-            {
-                resultIndex === 0 ?
-                    <ResultMain goNext={goNext} />
-                    :
-                    resultIndex === 1 ?
-                        <ResultInputName goNext={goNext} username={username} onChange={onChange} />
-                        :
-                        <ResultColor color={resultColor} username={username} />
-            }
+            <ResultColor color={resultColor} username={'You'} />
         </>
     )
 }
