@@ -24,7 +24,6 @@ function Intro() {
   const { setBackgroundColor } = useBackground();
 
   useEffect(() => {
-    console.log('intro')
     setBackgroundColor("#95948a");
     setTimeout(() => {
       setIsImageLoaded(true)
@@ -40,7 +39,6 @@ function Intro() {
 
 
   const onAnimationEnd = () => {
-    console.log('hello')
     setIsMsgOn(true)
   }
 

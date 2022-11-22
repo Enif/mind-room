@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import SoundOnOff from '../common/SoundOnOff';
 import outlineImg from '../../assets/img/result_outline_white.png';
+import reddotImg from '../../assets/img/reddot.png';
 import useLanguage from '../../hooks/useLanguage';
 import usePage from '../../hooks/usePage';
+import useBgm from '../../hooks/useBgm';
 
 type IntroLoadingProps = {
     isImageLoaded: boolean,
@@ -16,6 +18,8 @@ function IntroLoading({ isImageLoaded, hide }: IntroLoadingProps) {
     const [isSelectLanguage, setIsSelectLanguage] = useState(false);
     const svgPath = useRef<SVGPathElement>(null)
     const { setLanguage } = useLanguage();
+    const { playBgm } = useBgm();
+
 
     useEffect(() => {
         const prInterval = setInterval(() => {
@@ -47,7 +51,7 @@ function IntroLoading({ isImageLoaded, hide }: IntroLoadingProps) {
     }, [isImageLoaded])
 
     const onClickLanguage = (isEnglish: boolean) => {
-        console.log('kk')
+        playBgm();
         setLanguage(isEnglish);
         setIsSelectLanguage(true);
         hide();
@@ -64,13 +68,13 @@ function IntroLoading({ isImageLoaded, hide }: IntroLoadingProps) {
                     strokeWidth="3" fill="none" />
                 <text fontSize="1.2rem" x="35" y="53" fill="white">{progress}%</text>
             </svg> */}
-            {
-
-                <div className={`intro-btn-language-wrp`}>
-                    <button className="intro-btn-language" onClick={() => onClickLanguage(false)}>한국어</button>
-                    <button className="intro-btn-language" onClick={() => onClickLanguage(true)}>English</button>
-                </div>
-            }
+            <div className={`intro-btn-language-wrp`}>
+                <button className="intro-btn-language" onClick={() => onClickLanguage(false)}>시작하기</button>
+                {/* <button className="intro-btn-language" onClick={() => onClickLanguage(true)}>English</button> */}
+            </div>
+            <div className='reddot-img-wrp'>
+                <img className='reddot-img' src={reddotImg} alt='reddotImg' />
+            </div>
             {/* <p className="intro-notice">English version will be updated soon</p> */}
 
         </div>
