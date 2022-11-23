@@ -5,6 +5,7 @@ import answersScoreData, { scoreDataType, scoreDataKeys } from '../../data/score
 import './result.scss';
 // import ResultInputName from './ResultInputName';
 import ResultColor from './ResultColor';
+import useBgm from '../../hooks/useBgm';
 // import Axios from 'axios';
 
 // const SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
@@ -17,8 +18,13 @@ function Result() {
     const { answers } = useAnswer();
     const [resultIndex, setResultIndex] = useState(0);
     const [username, setUsername] = useState("");
-    const [resultColor, setResultColor] = useState("")
+    const [resultColor, setResultColor] = useState("");
+    const { pauseBgm } = useBgm();
 
+
+    useEffect(() => {
+        pauseBgm();
+    }, [pauseBgm])
 
     useEffect(() => {
         const resultScore = calculator();
